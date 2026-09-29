@@ -1,6 +1,22 @@
+<!-- grill-with-docs. Do not re-grill Settled. This leaf is the studio surface. -->
+
 # Wrapped plan — studio
 
+Parent: [`.prompts/road_to_mvp/studio_checkout/00_studio_checkout_unwrap_steps.md`](../../road_to_mvp/studio_checkout/00_studio_checkout_unwrap_steps.md).
+
 Accepted grill: `grill.md`.
+
+## Settled (do not re-grill) — 2026-09-29
+
+- Silhouette and icon never show together for the same slot
+- Monitor, lamp, and plant show before a desk. The plus opens that category
+- The preview column and the wall window are both large
+- Desk and chair have no none radio
+- The room drawing is composed from smaller blocks so `room-scene` stays under the line budget. The picture does not change
+
+## Goal
+
+The renter designs the room from the silhouettes.
 
 ## Chosen approach
 
@@ -21,3 +37,17 @@ Rejected: hiding accessories until a desk exists (extra wait), and a plus that d
   - [leaf] Plus opens the matching picker category (`studio-page`, `picker`)
 - Copy
   - [leaf] Caption and picker hints no longer say an accessory is waiting for a desk
+- Structure
+  - [leaf] Split the drawing into the window, the silhouettes, and the icons. `room-scene` only composes them
+
+## Done when
+
+Ticket 01 and ticket 02 acceptance criteria pass in the browser.
+
+## Out of scope
+
+Checkout form. vw conversion. Vercel.
+
+## Handoff
+
+Checkout leaf: [`.prompts/screens/checkout/plan.md`](../checkout/plan.md).

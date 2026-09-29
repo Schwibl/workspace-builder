@@ -28,6 +28,8 @@ Grilled and implemented before this file existed. Leaves are the screen plans, n
 
 Locked stack: Next.js, Tailwind page shells, Sass BEM blocks (ADR 0001). SVG room (ADR 0002). Request is not a charge (ADR 0003). Silhouette or icon, never both (ADR 0004).
 
-## New directions
+## This rebuild
 
-A new direction gets `00_<direction>_unwrap_steps.md`, then `NN_*.md` leaves, then implement. Do not start from this file with product code. Do not import Blocky or DNBH product directions (canvas, Booqable, CMS, Consultant).
+[`.prompts/road_to_mvp/studio_checkout/00_studio_checkout_unwrap_steps.md`](./studio_checkout/00_studio_checkout_unwrap_steps.md) is the direction the 2026-09-29 brief asked to run end to end. Spec and tickets live in `.scratch/workspace-rebuild/`.
+
+A later direction gets `00_<direction>_unwrap_steps.md`, then leaf plans, then implement. Do not import Blocky or DNBH product directions (canvas, Booqable, CMS, Consultant).

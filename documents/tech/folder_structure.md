@@ -13,6 +13,7 @@
   src/
     app/                     routes, layout, POST /api/rent
     blocks/                  one visual block per file
+                             room-scene composes room-window, room-slots, room-icons
     features/                catalog, setup, theme
     styles/
       base/                  variables, normalise
