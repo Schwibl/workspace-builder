@@ -1,14 +1,14 @@
-# Screen prompts
+# Prompts
 
-This is the design trail for the workspace designer. Portfolio repos such as `ai_chat_demo` keep `.prompts/` local (gitignored) and point Sass tokens at `.prompts/base/how_to_visualise.md`. This submission commits the folder so a reviewer can see why the screens look the way they do.
+Agent workflow copied from Blocky and retargeted the way DNBH retargeted Blocky. Coding standards live in [`.prompts/base/`](./base/). `AGENTS.md` is the short trigger list.
 
-`blocky` and `dnbh` were not readable from this environment (GitHub returned 404 without credentials). The flow below follows those public portfolio conventions plus the grill-with-docs skills vendored in `.cursor/skills/`.
-
-## For each screen, in order
+## For each new screen, in order
 
 1. `.prompts/screens/<screen>/ux.md` — shortest path, fewest actions.
 2. `.prompts/screens/<screen>/ui.md` — graphically explicit, interface-wise short.
-3. Grill those two files. Record the rounds in `grill.md`. Recommended answers are accepted (this run does not wait).
+3. Grill those two files with grill-with-docs. Record the rounds in `grill.md`. Take the recommended answer when the user said not to wait.
 4. Unwrap the leaves in `plan.md` and implement only those.
 
-Screens, in order: `studio`, then `checkout`.
+Screens already cooked: `studio`, then `checkout`.
+
+New multi-step work uses [`.prompts/road_to_mvp/00_unwrap_directions.md`](./road_to_mvp/00_unwrap_directions.md) and [`base/how_to_cook.md`](./base/how_to_cook.md).

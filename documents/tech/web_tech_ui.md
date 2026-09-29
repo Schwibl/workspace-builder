@@ -1,4 +1,4 @@
-# Architecture
+# Shell and room
 
 ```
 layout (theme + setup providers, header)
@@ -27,10 +27,10 @@ The studio and the checkout read the same provider, so the room on the review sc
 
 `room-scene.tsx` draws back to front: wall, a large window, plant, desk, monitors, lamp, chair. Each of those five slots is either a dashed silhouette with a plus or the explicit icon. A monitor, lamp, or plant can be an icon while the desk is still empty. Day and night skies are stacked; `room-window.scss` sets night to opacity 0, and `:root[data-theme="dark"]` swaps the opacities.
 
-## Rental request
-
-The route rejects a missing desk or chair, a term outside 1–52, an unknown area, a short name, or a broken email. Success returns `requestId`, the weekly price, the term total, the area name, and the lines. The client does not invent the total it shows after success.
-
 ## Theme boot
 
 `layout.tsx` runs a small script before paint. A saved theme wins. Otherwise the system preference is used. The header buttons write the attribute and `localStorage`.
+
+## Picker
+
+Five labels share the picker width: Desk, Chair, Monitor, Lamp, Plant. On a narrow column they wrap onto a second line. They do not scroll off the edge.

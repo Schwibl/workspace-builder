@@ -43,11 +43,11 @@ Types sit in `src/types/*.d.ts` and use the `t_` prefix. Screen briefs live in `
 
 ## Docs
 
-- [How the app is built](documentation/architecture.md)
-- [Folder structure](documentation/tech/folder_structure.md)
-- [Local server](documentation/dev/local_server.md)
-- [Agent flow](documentation/tech/agent_flow.md)
-- [What we would do next](documentation/tech/next_steps.md)
+- [How the room is built](documents/tech/web_tech_ui.md)
+- [Folder structure](documents/tech/folder_structure.md)
+- [Local server](documents/dev/local_server.md)
+- [Agent pointers](AGENTS.md)
+- [What we would do next](documents/tech/next_steps.md)
 - [Language](CONTEXT.md)
 
 ## What we would improve with more time
@@ -59,6 +59,6 @@ Types sit in `src/types/*.d.ts` and use the `t_` prefix. Screen briefs live in `
 
 ## Known limits
 
-`Schwibl/workspace-builder`, `Schwibl/blocky`, and `Schwibl/dnbh` all returned GitHub 404 without credentials, so this tree was scaffolded here and the agent flow was rebuilt from the public Schwibl portfolio repos (`ai_chat_demo` and the same documentation shape) plus Matt Pocock's grill-with-docs skills. There is no Vercel token in this environment, so there is no public URL yet.
+`Schwibl/blocky` and `Schwibl/dnbh` were readable over SSH. The agent pointers, `.prompts/base/`, `docs/agents/`, and `documents/` follow those repos, retargeted at this Next.js studio. Skills stay global (`npx skills add mattpocock/skills -g -a cursor`); `.cursor` and `.agents` are gitignored. There is no Vercel token in this environment, so there is no public URL yet.
 
 To add the reviewer when the GitHub repo is reachable: Settings → Collaborators → `desent-bot` → Read.
