@@ -54,8 +54,8 @@
     animation: room-piece-chosen 1.8s ease-in-out infinite;
   }
 
-  &:hover,
-  &:focus-visible {
+  // Pointer only. Focus must not keep this stretch running after the pointer leaves.
+  &--hover {
     animation: room-piece-hover 0.85s ease-in-out infinite;
   }
 }
@@ -87,11 +87,12 @@
     animation: none;
 
     &--chosen {
+      animation: none;
       transform: scale(1);
     }
 
-    &:hover,
-    &:focus-visible {
+    &--hover {
+      animation: none;
       transform: scale(1.07);
     }
   }

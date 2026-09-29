@@ -8,7 +8,7 @@ On a phone the same blocks stack: room, sidebar, price. Do not add a second desk
 
 Every slot is a hit target, empty or filled. Motion uses the piece's own center. A frame is not the hover or the selected state.
 
-- Hover: the piece scales up slightly and pulses between that size and a little larger. The pointer is a hand. No teal outline, no tinted hit plate.
+- Hover: the piece scales up slightly and pulses between that size and a little larger, only while the pointer is on that piece. Leaving it returns the piece to rest and stops that pulse. The pointer is a hand. No teal outline, no tinted hit plate. Focus alone does not play the hover pulse.
 - Selected: a filled slot pulses in size, a smaller loop than the hover. "None" and an empty slot do not pulse. Hover on a selected piece uses the larger hover pulse.
 - Click, sidebar open: that category becomes the open tab.
 - Click, sidebar collapsed: a pop-up of that slot's radios sits beside the piece. Clicking the same piece again closes it. Clicking another piece moves the pop-up.

@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, type ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
 import { findChair, findDesk, findMonitor } from "@/features/catalog";
 import { deskBox } from "@/features/room-layout";
 import { describeSetup } from "@/features/setup-model";
@@ -35,13 +35,23 @@ function PieceHit({
   chosen?: boolean;
   children: ReactNode;
 }) {
-  const pieceClass = chosen ? "room-piece room-piece--chosen" : "room-piece";
+  const [hovered, setHovered] = useState(false);
+  const pieceClass = [
+    "room-piece",
+    chosen ? "room-piece--chosen" : "",
+    hovered ? "room-piece--hover" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
   return (
     <g
       className={pieceClass}
       role="button"
       tabIndex={0}
       aria-label={label}
+      onPointerEnter={() => setHovered(true)}
+      onPointerLeave={() => setHovered(false)}
+      onPointerCancel={() => setHovered(false)}
       onClick={(event) => {
         event.stopPropagation();
         onChoose();

@@ -5,7 +5,7 @@ The room is the control. An empty slot shows where a piece goes. A chosen piece 
 ## Path
 
 1. Land on the room. Five slots are already drawn: desk, chair, monitor, lamp, plant. Each empty slot is a silhouette with one circle and a plus. The weekly price sits where it can be seen with the room.
-2. Hover a piece. It grows a little and pulses at that larger size, so the slot feels clickable before the click. It does not grow a frame.
+2. Hover a piece. It grows a little and pulses at that larger size, so the slot feels clickable before the click. It does not grow a frame. When the pointer leaves, that stretch stops. A chosen piece may keep its smaller size pulse.
 3. Click a piece while the sidebar is open. That category opens in the sidebar. One radio fills the slot. The silhouette becomes the explicit icon immediately, and that icon pulses in size. The list does not draw a border to mark the choice.
 4. Collapse the sidebar. The list leaves. Click a piece and the options for that slot open in a pop-up beside that piece. The same radios. One choice, and the drawing updates and pulses.
 5. Expand the sidebar and the pop-up closes. Clicks go back to the sidebar tabs.
