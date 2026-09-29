@@ -37,8 +37,16 @@
     text-align: center;
     white-space: nowrap;
     cursor: pointer;
+    transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
 
-    &--active {
+    &:hover {
+      border-color: var(--color-text);
+      background: var(--color-bg);
+    }
+
+    // The open category keeps the accent fill when the pointer is on it.
+    &--active,
+    &--active:hover {
       border-color: var(--color-accent);
       background: var(--color-accent);
       color: var(--color-accent-ink);
