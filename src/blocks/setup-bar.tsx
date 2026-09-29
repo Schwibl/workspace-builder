@@ -13,10 +13,10 @@ export function SetupBar() {
   return (
     <div className="setup-bar">
       <div className="setup-bar__total">
-        <span className="setup-bar__amount">{formatUsd(weekly)}</span>
-        <span className="setup-bar__meta">
+        <div className="setup-bar__amount">{formatUsd(weekly)}</div>
+        <div className="setup-bar__meta">
           {ready ? "per week, before you choose a term" : "Add a desk and a chair to rent"}
-        </span>
+        </div>
       </div>
       <div className="setup-bar__actions">
         {isSetupEmpty(setup) ? null : (

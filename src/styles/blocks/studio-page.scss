@@ -1,4 +1,7 @@
 .studio-page {
+  // Clears the round dev badge that sits on the bottom-left corner.
+  padding-bottom: 3.75rem;
+
   &__status {
     margin: 2rem auto;
     color: var(--color-muted);
@@ -46,6 +49,7 @@
 }
 
 // Laptop height: the page itself does not scroll. The option list scrolls inside the sidebar.
+// The extra bottom padding keeps the price line above the dev-server badge in this corner.
 @media (min-width: 1024px) {
   .studio-page {
     height: calc(100dvh - 4.6rem);
