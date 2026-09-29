@@ -1,31 +1,35 @@
 # Studio — UI
 
-Warm paper page. A sticky header: Fraunces wordmark "monis.rent", the line "Bali workspace rental", text links Design and Review, and a pill toggle labeled White and Dark. The active half of the pill uses the teal accent.
+The preview is the large column. From the large breakpoint it takes roughly two thirds of a wide page, and the SVG is at least 34rem tall. On a phone the room is still first and at least 22rem tall. The wall window is the biggest shape in the drawing: a wide opening above the desk, frame and sill included, daylight or moon filling it.
 
-Below, a two-column grid from the large breakpoint: the room on the left (about 60%), the picker on the right. One column on a phone, room first.
+## Empty silhouette
 
-## The room
+Every unfilled slot is a dashed outline of that object, in the muted text color:
 
-A framed figure with a soft shadow. Inside, one SVG elevation, full width of the column:
+- Desk: tabletop and two legs, centered under the window.
+- Chair: seat, back, and base, in front of the desk.
+- Monitor: one screen and stand, on the desktop.
+- Lamp: arm and head, on the right of the desktop.
+- Plant: pot and two leaves, on the floor to the left.
 
-- Wall in `--scene-wall`, a darker baseboard, a wood floor, a terracotta rug ellipse.
-- A window centered on the wall, directly above where the desk will stand. Thick light frame, one mullion, a wood sill. The opening is clipped.
-- Day: sky gradient, a sun with eight rays on the right pane, a small cloud on the left.
-- Night: deep blue gradient, a handful of stars, a crescent moon. Night is drawn on top of day at opacity 0 until `[data-theme="dark"]`.
-- Snake plant on the floor, left of the desk, when chosen. It can stand with no desk.
-- Desk top in `--scene-wood`, darker edge and legs. Mechanical: a crank disk on the right leg. Electric: a small metal panel on the apron. Dual-motor: thicker legs and a wider top.
-- Monitor bezels on the desktop, only if a desk exists. One 27″, one ultrawide, or two 27″s. Screens use `--scene-screen`.
-- Lamp on the right corner of the desk: metal arm, warm head, a glow ellipse on the top. Only with a desk.
-- Chair in front, centered: five-star base, seat, mesh back. Mesh chair is tall with a headrest. Task chair is shorter and has no headrest.
+Centered on each outline: a teal circle and a bold white plus (two strokes, round caps, thicker than the outline). The whole silhouette is the button. Accessible name: "Add a desk", "Add a chair", "Add a monitor", "Add a lamp", "Add a plant".
 
-Caption under the SVG, muted, one or two sentences. It names the sky first ("Daylight in the window" or "Moon in the window"), then the chosen pieces. If a monitor or lamp is chosen before a desk, say they are waiting for a desk.
+## Explicit icon
 
-## The picker
+When the slot is filled, the outline and the plus are gone. In their place is the solid drawing:
 
-A horizontal scroller of pills. The open category is a filled teal pill. Under it, a Fraunces heading ("Pick a desk", "Add a monitor", …) and one muted hint line.
+- Desk: wood top, darker legs. Mechanical crank, electric panel, or thick dual-motor legs, at that desk's width.
+- Chair: mesh with headrest, or the shorter task chair.
+- Monitor: one 27″, one ultrawide, or two 27″s, with bezels and lit screens.
+- Lamp: metal arm, warm head, glow on the top.
+- Plant: terracotta pot and green leaves.
 
-Options are stacked cards. Each card is a label: a real radio, the name, the weekly price (an em dash when it is free), and a one-line blurb in muted type. The checked card gets an accent border and the soft accent fill.
+Optional icons use the same places when the desk is still a silhouette. They are not hidden and they are not faded.
 
-## The bar
+## Picker
 
-Surface card. Fraunces price on the left, a muted line under it ("per week…" or "Add a desk and a chair to rent"). On the right, a quiet Start over text button when the room is not empty, and a teal pill **Review rental**.
+Unchanged structure: pills, one open category, radio cards with name, weekly price, and one line. The open category follows the plus that was tapped. Hints say the monitor, lamp, and plant can be chosen before a desk.
+
+## Caption
+
+Muted line under the SVG. Sky first ("Daylight in the window" or "Moon in the window"), then the chosen names, or "Open slots are marked with a plus."

@@ -1,31 +1,31 @@
 # Studio — grill
 
-Self-grill of `ux.md` and `ui.md`. The assignment says to take the recommended answer and continue, so each ➡️ is accepted. No further round: the frontier below is empty.
+Self-grill of the new `ux.md` and `ui.md`. Recommended answers are accepted. Frontier empty.
 
-❓ **Q1** - **One screen or a wizard?**: A wizard (desk, then chair, then accessories) keeps each step small. A single studio keeps the room visible and cuts the number of commits the renter has to make.
+❓ **Q1** - **What is a silhouette versus an icon?**: The same object drawn twice is confusing unless one word means "not chosen" and the other means "chosen".
 
-➡️ One studio. The room is the product. A wizard hides it between steps.
-
----
-
-❓ **Q2** - **How does an accessory get removed?**: A separate remove button, or a "none" choice in the same list.
-
-➡️ A "none" radio in Monitor, Lamp, and Plant. Same control that added it. Desk and chair have no none row; Start over clears them.
+➡️ A silhouette is the empty dashed slot, plus included. An icon is the solid piece that replaces it. They never show together for the same slot.
 
 ---
 
-❓ **Q3** - **Where does the window live?**: Its own furniture slot, or a fixed part of the desk's wall that only changes with the theme.
+❓ **Q2** - **Can a lamp exist with no desk?**: Waiting until a desk is chosen hides a choice the renter already made. Showing it early means the room can look unfinished.
 
-➡️ Fixed on the wall, centered over the desk. It is not rented. White shows daylight, Dark shows the moon. One toggle, no second control.
-
----
-
-❓ **Q4** - **Photos or a drawing?**: Cropped product photos composite faster to "real", and they go stale and fight the theme. A drawing recolors with the tokens.
-
-➡️ One SVG elevation using the scene tokens. Original drawing, not monis.rent photography.
+➡️ Show it. Monitor, lamp, and plant are optional and stay selectable with or without a desk. Their icons use the same anchors as their silhouettes.
 
 ---
 
-❓ **Q5** - **Can Review open with an empty room?**: Disabling it hides the empty checkout. Leaving it enabled makes that state one click away.
+❓ **Q3** - **Does the plus do anything?**: A plus that is only a picture makes the renter hunt for the matching tab.
 
-➡️ Leave Review enabled. The checkout explains what is missing.
+➡️ The silhouette is the button. It opens that category. One hit, then one radio.
+
+---
+
+❓ **Q4** - **Which window gets bigger?**: Only the wall opening, or the whole preview pane as well.
+
+➡️ Both. The wall window grows inside the drawing, and the preview column and SVG grow on the page so the room is what you see first.
+
+---
+
+❓ **Q5** - **Desk and chair?**: They could also have a "none" radio.
+
+➡️ No. Empty is the silhouette. Start over is how they clear. Rent still requires both.

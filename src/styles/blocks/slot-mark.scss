@@ -1,0 +1,28 @@
+// Empty slot: dashed object plus a teal circle and a bold white plus.
+
+.slot-mark {
+  cursor: pointer;
+
+  &__outline {
+    fill: none;
+    stroke: var(--color-muted);
+    stroke-width: 2.5;
+    stroke-dasharray: 7 6;
+  }
+
+  &__badge {
+    fill: var(--color-accent);
+  }
+
+  &__plus {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+
+  &:focus-visible &__badge {
+    stroke: var(--color-text);
+    stroke-width: 3;
+  }
+}

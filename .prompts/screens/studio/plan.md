@@ -1,26 +1,23 @@
 # Wrapped plan — studio
 
-Accepted grill: `grill.md`. Only the leaves are implemented.
+Accepted grill: `grill.md`.
 
 ## Chosen approach
 
-One screen, scene always visible, one single-select category at a time, theme on the window. Rejected: a step wizard (more taps, room disappears) and a photo collage (theme cannot recolor it, and we would be hotlinking someone else's catalog).
+Five slots are always in the room. Empty means a dashed silhouette and a white plus. Chosen means the explicit icon, including optional pieces chosen before a desk. The plus opens that category. The preview and the wall window are both larger.
+
+Rejected: hiding accessories until a desk exists (extra wait), and a plus that does not open the picker (extra hunting).
 
 ## Tree
 
-- Shell
-  - [leaf] Header with White / Dark, writing `data-theme` and `localStorage` (`app-header`, `theme-context`)
-  - [leaf] Two-column studio grid, room first (`studio-page`)
-- Scene
-  - [leaf] Wall, floor, rug (`room-scene` backdrop)
-  - [leaf] Window with day sky and moon sky, CSS crossfade (`room-window`)
-  - [leaf] Desk, chair, monitor, lamp, plant from the current setup (`scene-*`)
-- Choice
-  - [leaf] Category tabs and radio cards (`picker`)
-  - [leaf] Setup in memory, sanitized, written to `localStorage` (`setup-context`, `setup-model`)
-- Bar
-  - [leaf] Weekly total, Start over, Review rental (`setup-bar`)
-
-## Unwrap
-
-Each leaf is a block under `src/blocks/` or a feature under `src/features/`. Styles for a block stay in `src/styles/blocks/<block-name>.scss`. The page only composes them.
+- Language
+  - [leaf] Slot, silhouette, icon, optional piece in `CONTEXT.md`
+- Preview
+  - [leaf] Wider studio column and a taller SVG (`studio-page`, `room-scene.scss`)
+  - [leaf] Larger wall window, still day or moon (`room-window`)
+- Slots
+  - [leaf] Dashed silhouettes and plus buttons for desk, chair, monitor, lamp, plant (`slot-mark`, `room-scene`)
+  - [leaf] Explicit icons in those same places, optional icons allowed with no desk
+  - [leaf] Plus opens the matching picker category (`studio-page`, `picker`)
+- Copy
+  - [leaf] Caption and picker hints no longer say an accessory is waiting for a desk

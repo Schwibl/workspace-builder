@@ -1,6 +1,7 @@
 "use client";
 
 import { useId } from "react";
+import type { ReactNode } from "react";
 import { findChair, findDesk, findMonitor } from "@/features/catalog";
 import { describeSetup } from "@/features/setup-model";
 import { useSetup } from "@/features/setup-context";
@@ -18,29 +19,46 @@ function deskBox(width: t_DeskWidth): t_DeskBox {
   return { x: (960 - w) / 2, w, topY: 312 };
 }
 
-// The room the renter is designing. The window belongs to this desk and follows the theme.
-export function RoomScene({ compact = false }: { compact?: boolean }) {
+type t_ChooseSlot = (category: t_CategoryId) => void;
+
+// The room the renter is designing. Empty slots are silhouettes; chosen pieces are icons.
+export function RoomScene({
+  compact = false,
+  onChoose,
+}: {
+  compact?: boolean;
+  onChoose?: t_ChooseSlot;
+}) {
   const { setup } = useSetup();
   const { theme, mounted } = useTheme();
   const uid = useId().replace(/:/g, "");
   const desk = findDesk(setup.deskId);
   const chair = findChair(setup.chairId);
   const monitor = findMonitor(setup.monitorId);
-  const box = desk ? deskBox(desk.width) : null;
+  // Anchors stay put when the desk is still empty, so optional icons have a place to land.
+  const box = desk ? deskBox(desk.width) : deskBox("wide");
   const label = mounted ? describeSetup(setup, theme) : "Workspace preview";
   const figureClass = compact ? "room-scene room-scene--compact" : "room-scene";
+  const choose = (category: t_CategoryId) => onChoose?.(category);
 
   return (
-    <figure className={figureClass}>
-      <svg className="room-scene__svg" viewBox="0 0 960 540" role="img" aria-label={label}>
-        <title>{label}</title>
+    <figure className={figureClass} aria-label={label}>
+      <svg className="room-scene__svg" viewBox="0 0 960 560">
         <RoomBackdrop />
         <RoomWindow uid={uid} />
-        {setup.plantId === "snake" ? <ScenePlant x={box ? box.x - 86 : 150} /> : null}
-        {box && desk ? <SceneDesk box={box} deskId={desk.id} /> : null}
-        {box && monitor.layout !== "none" ? <SceneMonitor box={box} layout={monitor.layout} /> : null}
-        {box && setup.lampId === "led" ? <SceneLamp box={box} /> : null}
-        {chair ? <SceneChair back={chair.back} /> : null}
+        {setup.plantId === "snake" ? (
+          <ScenePlant x={box.x - 96} />
+        ) : (
+          <PlantSilhouette x={box.x - 96} onChoose={() => choose("plant")} />
+        )}
+        {desk ? <SceneDesk box={box} deskId={desk.id} /> : <DeskSilhouette box={box} onChoose={() => choose("desk")} />}
+        {monitor.layout !== "none" ? (
+          <SceneMonitor box={box} layout={monitor.layout} />
+        ) : (
+          <MonitorSilhouette box={box} onChoose={() => choose("monitor")} />
+        )}
+        {setup.lampId === "led" ? <SceneLamp box={box} /> : <LampSilhouette box={box} onChoose={() => choose("lamp")} />}
+        {chair ? <SceneChair back={chair.back} /> : <ChairSilhouette onChoose={() => choose("chair")} />}
       </svg>
       <figcaption className="room-scene__caption">{label}</figcaption>
     </figure>
@@ -53,13 +71,14 @@ function RoomBackdrop() {
     <g>
       <rect className="room-scene__wall" width="960" height="450" />
       <rect className="room-scene__baseboard" y="418" width="960" height="18" />
-      <rect className="room-scene__floor" y="434" width="960" height="106" />
-      <ellipse className="room-scene__rug" cx="480" cy="502" rx="240" ry="24" />
+      <rect className="room-scene__floor" y="434" width="960" height="126" />
+      <ellipse className="room-scene__rug" cx="480" cy="520" rx="250" ry="26" />
     </g>
   );
 }
 
 // Daylight and moon are both painted. CSS fades the one that does not match data-theme.
+// Wide opening above the desk. Day and night are both painted; the theme fades one out.
 function RoomWindow({ uid }: { uid: string }) {
   const clipId = `${uid}-clip`;
   const dayId = `${uid}-day`;
@@ -78,49 +97,153 @@ function RoomWindow({ uid }: { uid: string }) {
           <stop offset="1" stopColor="var(--scene-night-bottom)" />
         </linearGradient>
         <clipPath id={clipId}>
-          <rect x="352" y="62" width="256" height="158" rx="4" />
+          <rect x="190" y="28" width="580" height="214" rx="6" />
         </clipPath>
         <mask id={moonId}>
-          <circle cx="0" cy="0" r="26" fill="white" />
-          <circle cx="14" cy="-8" r="22" fill="black" />
+          <circle cx="0" cy="0" r="36" fill="white" />
+          <circle cx="18" cy="-10" r="30" fill="black" />
         </mask>
       </defs>
       <g clipPath={`url(#${clipId})`}>
         <g className="room-window__sky-day">
-          <rect x="352" y="62" width="256" height="158" fill={`url(#${dayId})`} />
-          <g transform="translate(530 118)">
-            <line className="room-window__ray" x1="-42" y1="0" x2="-30" y2="0" />
-            <line className="room-window__ray" x1="30" y1="0" x2="42" y2="0" />
-            <line className="room-window__ray" x1="0" y1="-42" x2="0" y2="-30" />
-            <line className="room-window__ray" x1="0" y1="30" x2="0" y2="42" />
-            <line className="room-window__ray" x1="-28" y1="-28" x2="-20" y2="-20" />
-            <line className="room-window__ray" x1="20" y1="20" x2="28" y2="28" />
-            <line className="room-window__ray" x1="28" y1="-28" x2="20" y2="-20" />
-            <line className="room-window__ray" x1="-20" y1="20" x2="-28" y2="28" />
-            <circle className="room-window__sun" r="22" />
+          <rect x="190" y="28" width="580" height="214" fill={`url(#${dayId})`} />
+          <g transform="translate(680 120)">
+            <line className="room-window__ray" x1="-52" y1="0" x2="-38" y2="0" />
+            <line className="room-window__ray" x1="38" y1="0" x2="52" y2="0" />
+            <line className="room-window__ray" x1="0" y1="-52" x2="0" y2="-38" />
+            <line className="room-window__ray" x1="0" y1="38" x2="0" y2="52" />
+            <line className="room-window__ray" x1="-36" y1="-36" x2="-26" y2="-26" />
+            <line className="room-window__ray" x1="26" y1="26" x2="36" y2="36" />
+            <line className="room-window__ray" x1="36" y1="-36" x2="26" y2="-26" />
+            <line className="room-window__ray" x1="-26" y1="26" x2="-36" y2="36" />
+            <circle className="room-window__sun" r="30" />
           </g>
-          <ellipse className="room-window__cloud" cx="410" cy="168" rx="26" ry="11" />
-          <ellipse className="room-window__cloud" cx="434" cy="162" rx="20" ry="11" />
-          <ellipse className="room-window__cloud" cx="392" cy="164" rx="14" ry="9" />
+          <ellipse className="room-window__cloud" cx="300" cy="190" rx="40" ry="16" />
+          <ellipse className="room-window__cloud" cx="338" cy="182" rx="32" ry="16" />
+          <ellipse className="room-window__cloud" cx="270" cy="184" rx="22" ry="12" />
         </g>
         <g className="room-window__sky-night">
-          <rect x="352" y="62" width="256" height="158" fill={`url(#${nightId})`} />
-          <circle className="room-window__star" cx="390" cy="92" r="1.7" />
-          <circle className="room-window__star" cx="430" cy="118" r="1.3" />
-          <circle className="room-window__star" cx="560" cy="96" r="1.8" />
-          <circle className="room-window__star" cx="500" cy="84" r="1.2" />
-          <circle className="room-window__star" cx="470" cy="140" r="1.4" />
-          <circle className="room-window__star" cx="545" cy="156" r="1.1" />
-          <circle className="room-window__star" cx="410" cy="150" r="1.2" />
-          <g transform="translate(492 132)" mask={`url(#${moonId})`}>
-            <circle className="room-window__moon" r="26" />
+          <rect x="190" y="28" width="580" height="214" fill={`url(#${nightId})`} />
+          <circle className="room-window__star" cx="240" cy="70" r="2" />
+          <circle className="room-window__star" cx="310" cy="110" r="1.5" />
+          <circle className="room-window__star" cx="390" cy="64" r="1.8" />
+          <circle className="room-window__star" cx="520" cy="80" r="1.4" />
+          <circle className="room-window__star" cx="600" cy="150" r="1.6" />
+          <circle className="room-window__star" cx="700" cy="70" r="2" />
+          <circle className="room-window__star" cx="250" cy="180" r="1.3" />
+          <g transform="translate(470 130)" mask={`url(#${moonId})`}>
+            <circle className="room-window__moon" r="36" />
           </g>
         </g>
       </g>
-      <rect className="room-window__frame" x="345" y="55" width="270" height="172" rx="8" />
-      <line className="room-window__mullion" x1="480" y1="62" x2="480" y2="220" />
-      <rect className="room-window__sill" x="328" y="220" width="304" height="12" rx="3" />
+      <rect className="room-window__frame" x="176" y="14" width="608" height="242" rx="10" />
+      <line className="room-window__mullion" x1="480" y1="28" x2="480" y2="242" />
+      <rect className="room-window__sill" x="160" y="246" width="640" height="16" rx="4" />
     </g>
+  );
+}
+
+// Dashed slot plus a teal circle and a bold white plus. The group is the button.
+function EmptySlot({
+  label,
+  onChoose,
+  children,
+}: {
+  label: string;
+  onChoose: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <g
+      className="slot-mark"
+      role="button"
+      tabIndex={0}
+      aria-label={label}
+      onClick={onChoose}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onChoose();
+        }
+      }}
+    >
+      {children}
+    </g>
+  );
+}
+
+function PlusBadge({ x, y }: { x: number; y: number }) {
+  return (
+    <g transform={`translate(${x} ${y})`}>
+      <circle className="slot-mark__badge" r="22" />
+      <path className="slot-mark__plus" d="M -9 0 H 9 M 0 -9 V 9" />
+    </g>
+  );
+}
+
+function DeskSilhouette({ box, onChoose }: { box: t_DeskBox; onChoose: () => void }) {
+  return (
+    <EmptySlot label="Add a desk" onChoose={onChoose}>
+      <g transform={`translate(${box.x} ${box.topY})`}>
+        <rect className="slot-mark__outline" width={box.w} height="16" rx="3" />
+        <rect className="slot-mark__outline" x="22" y="16" width="12" height="96" rx="2" />
+        <rect className="slot-mark__outline" x={box.w - 34} y="16" width="12" height="96" rx="2" />
+        <PlusBadge x={box.w / 2} y={8} />
+      </g>
+    </EmptySlot>
+  );
+}
+
+function ChairSilhouette({ onChoose }: { onChoose: () => void }) {
+  return (
+    <EmptySlot label="Add a chair" onChoose={onChoose}>
+      <ellipse className="slot-mark__outline" cx="480" cy="508" rx="56" ry="10" />
+      <rect className="slot-mark__outline" x="474" y="456" width="12" height="50" rx="4" />
+      <ellipse className="slot-mark__outline" cx="480" cy="452" rx="62" ry="16" />
+      <rect className="slot-mark__outline" x="444" y="356" width="72" height="96" rx="18" />
+      <PlusBadge x={480} y={400} />
+    </EmptySlot>
+  );
+}
+
+function MonitorSilhouette({ box, onChoose }: { box: t_DeskBox; onChoose: () => void }) {
+  const width = 156;
+  const height = 90;
+  const x = box.x + (box.w - width) / 2;
+  const y = box.topY - height - 18;
+  return (
+    <EmptySlot label="Add a monitor" onChoose={onChoose}>
+      <rect className="slot-mark__outline" x={x + width / 2 - 4} y={y + height} width="8" height="16" />
+      <rect className="slot-mark__outline" x={x + width / 2 - 24} y={y + height + 14} width="48" height="6" rx="2" />
+      <rect className="slot-mark__outline" x={x} y={y} width={width} height={height} rx="6" />
+      <PlusBadge x={x + width / 2} y={y + height / 2} />
+    </EmptySlot>
+  );
+}
+
+function LampSilhouette({ box, onChoose }: { box: t_DeskBox; onChoose: () => void }) {
+  const x = box.x + box.w - 28;
+  const y = box.topY;
+  return (
+    <EmptySlot label="Add a lamp" onChoose={onChoose}>
+      <rect className="slot-mark__outline" x={x - 18} y={y - 6} width="30" height="6" rx="2" />
+      <path className="slot-mark__outline" d={`M ${x - 4} ${y - 6} V ${y - 72} H ${x - 36}`} />
+      <rect className="slot-mark__outline" x={x - 52} y={y - 82} width="40" height="12" rx="4" />
+      <PlusBadge x={x - 32} y={y - 76} />
+    </EmptySlot>
+  );
+}
+
+function PlantSilhouette({ x, onChoose }: { x: number; onChoose: () => void }) {
+  return (
+    <EmptySlot label="Add a plant" onChoose={onChoose}>
+      <g transform={`translate(${x} 392)`}>
+        <path className="slot-mark__outline" d="M16 52 H58 L50 98 H24 Z" />
+        <ellipse className="slot-mark__outline" cx="26" cy="44" rx="14" ry="34" />
+        <ellipse className="slot-mark__outline" cx="50" cy="40" rx="13" ry="36" />
+        <PlusBadge x={36} y={48} />
+      </g>
+    </EmptySlot>
   );
 }
 

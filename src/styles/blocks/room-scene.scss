@@ -10,6 +10,7 @@
     display: block;
     width: 100%;
     height: auto;
+    min-height: 22rem;
     background: var(--scene-wall);
   }
 
@@ -39,5 +40,19 @@
 
   &--compact &__caption {
     font-size: 0.82rem;
+  }
+
+  &--compact &__svg {
+    min-height: 16rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .room-scene__svg {
+    min-height: 34rem;
+  }
+
+  .room-scene--compact .room-scene__svg {
+    min-height: 22rem;
   }
 }

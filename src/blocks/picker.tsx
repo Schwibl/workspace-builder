@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import {
   categories,
   chairs,
   desks,
-  isCategoryId,
   isChairId,
   isDeskId,
   isLampId,
@@ -19,27 +17,22 @@ import { formatUsd } from "@/features/setup-model";
 import { useSetup } from "@/features/setup-context";
 
 const hints: Record<t_CategoryId, string> = {
-  desk: "One desk. It lands under the window.",
-  chair: "One chair, pulled up to the desk.",
-  monitor: "Optional. It appears on the desktop after you pick a desk.",
-  lamp: "Optional. A warm light on the right side of the desk.",
-  plant: "Optional. A pot on the floor to the left.",
+  desk: "One desk. It replaces the table silhouette under the window.",
+  chair: "One chair, in front of the desk.",
+  monitor: "Optional. You can add it before a desk. It still shows.",
+  lamp: "Optional. You can add it before a desk. The other extras stay open.",
+  plant: "Optional. A pot on the floor, with or without a desk.",
 };
 
-// One category at a time. Every slot is a single choice, so the room never stacks duplicates.
-export function Picker({ initialCategory }: { initialCategory: string | null }) {
+// One category at a time. The open category follows the plus tapped in the room.
+export function Picker({
+  category,
+  onCategory,
+}: {
+  category: t_CategoryId;
+  onCategory: (category: t_CategoryId) => void;
+}) {
   const { setup, setDesk, setChair, setMonitor, setLamp, setPlant } = useSetup();
-  const requested = isCategoryId(initialCategory) ? initialCategory : null;
-  const [category, setCategory] = useState<t_CategoryId>(requested ?? "desk");
-  const [trackedRequest, setTrackedRequest] = useState<t_CategoryId | null>(requested);
-
-  // Follow a category deep link without an effect. Local tab clicks stay put until the URL changes.
-  if (requested !== trackedRequest) {
-    setTrackedRequest(requested);
-    if (requested) {
-      setCategory(requested);
-    }
-  }
 
   const options = optionsFor(category);
   const selected = selectedId(setup, category);
@@ -81,7 +74,7 @@ export function Picker({ initialCategory }: { initialCategory: string | null }) 
               aria-selected={active}
               aria-controls="picker-panel"
               tabIndex={active ? 0 : -1}
-              onClick={() => setCategory(item.id)}
+              onClick={() => onCategory(item.id)}
             >
               {item.label}
             </button>

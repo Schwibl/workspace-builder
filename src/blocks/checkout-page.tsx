@@ -74,7 +74,12 @@ export function CheckoutPage() {
   return (
     <div className="checkout-page mx-auto grid w-full min-w-0 max-w-6xl gap-6 px-4 py-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:px-6">
       <div>
-        <RoomScene compact />
+        <RoomScene
+          compact
+          onChoose={(category) => {
+            router.push(`/?category=${category}`);
+          }}
+        />
       </div>
       <div className="flex flex-col gap-4">
         <header>

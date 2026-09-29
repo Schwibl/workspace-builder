@@ -16,8 +16,24 @@ _Avoid_: Table
 The one seat in a setup. A setup has at most one.
 _Avoid_: Seat
 
+**Slot**:
+One place in the room for a single kind of piece: desk, chair, monitor, lamp, or plant.
+_Avoid_: Zone, placeholder
+
+**Silhouette**:
+The empty drawing of a slot that is not in the setup. It carries a plus.
+_Avoid_: Ghost, outline image
+
+**Icon**:
+The explicit drawing of the piece once that slot is chosen.
+_Avoid_: Thumbnail, photo
+
+**Optional piece**:
+A monitor, lamp, or plant. It may be chosen before a desk is.
+_Avoid_: Add-on, extra
+
 **Accessory**:
-A monitor, lamp, or plant added to a setup. Each kind has at most one choice, and "none" is a choice.
+An optional piece in the setup. Each kind has at most one choice, and "none" returns that slot to a silhouette.
 _Avoid_: Add-on, extra
 
 **Window**:

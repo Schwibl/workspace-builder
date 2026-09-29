@@ -113,16 +113,7 @@ export function describeSetup(setup: t_Setup, theme: t_Theme): string {
   const sky = theme === "dark" ? "Moon in the window" : "Daylight in the window";
   const names = lineItems(setup).map((item) => item.name);
   if (names.length === 0) {
-    return `${sky}. The room is empty — pick a desk to start.`;
+    return `${sky}. Open slots are marked with a plus.`;
   }
-  const waiting: string[] = [];
-  if (!setup.deskId && setup.monitorId !== "none") {
-    waiting.push("the monitor waits for a desk");
-  }
-  if (!setup.deskId && setup.lampId !== "none") {
-    waiting.push("the lamp waits for a desk");
-  }
-  const placed = names.join(", ");
-  const extra = waiting.length > 0 ? ` ${waiting.join(", ")}.` : "";
-  return `${sky}. ${placed}.${extra}`;
+  return `${sky}. ${names.join(", ")}.`;
 }
