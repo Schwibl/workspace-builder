@@ -54,11 +54,30 @@ function getMountedServer(): boolean {
 }
 
 function setTheme(next: t_Theme): void {
+  const previous = document.documentElement.dataset.theme;
   themeSnapshot = next;
   themeHydrated = true;
   document.documentElement.dataset.theme = next;
   window.localStorage.setItem(themeStorageKey, next);
   emitTheme();
+  if (next === "dark" && previous !== "dark") {
+    playScare();
+  }
+  if (next !== "dark") {
+    document.documentElement.classList.remove("theme-scare");
+  }
+}
+
+// A short vignette. Only the dark theme plays it.
+export function playScare(): void {
+  if (document.documentElement.dataset.theme !== "dark") {
+    return;
+  }
+  const root = document.documentElement;
+  root.classList.remove("theme-scare");
+  void root.offsetWidth;
+  root.classList.add("theme-scare");
+  window.setTimeout(() => root.classList.remove("theme-scare"), 900);
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

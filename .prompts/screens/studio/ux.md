@@ -14,7 +14,8 @@ The room is the control. An empty slot shows where a piece goes. A chosen piece 
 8. The option list can be longer than the column. It scrolls. The scrollbar does not appear in a way that changes the width of the list or the page.
 9. The bar under the room shows the weekly total and **Review rental**. On a laptop-height screen that bar is in view with the open sidebar. No page scroll. The amount, the helper line, and the actions stay readable.
 10. **Start over** clears every slot back to a silhouette. The pulse stops.
-11. White / Dark changes the app and the window together: daylight, or the moon. Nothing under the picture repeats that.
+11. White / Dark changes the app and the window together. White stays the daylight Bali rental. Dark is a horror night: an eerie moon, a faint grain, colder red accents, and creepier empty slots. Nothing under the picture repeats that. The daylight look does not pick up the night treatment.
+12. Hover an unselected radio card and it shifts, so rest and hover are not the same. A selected card keeps its soft fill while the pointer is on it.
 
 ## What we refuse to add
 
@@ -24,6 +25,7 @@ The room is the control. An empty slot shows where a piece goes. A chosen piece 
 - A second desktop layout. The phone may stack. It does not get its own arrangement of columns.
 - A selection border on the radio card. The chosen piece pulses instead.
 - A teal hover frame. Hover is a stretch and a small pulse.
+- Horror on the white theme. The night treatment belongs to Dark only.
 
 ## Empty
 

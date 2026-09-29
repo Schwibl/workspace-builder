@@ -26,3 +26,16 @@
     stroke-width: 3;
   }
 }
+
+// Night slots read as thin scratches, not the daylight teal mark.
+:root[data-theme="dark"] .slot-mark {
+  &__outline {
+    stroke: #8a4048;
+    stroke-dasharray: 2 8;
+    opacity: 0.92;
+  }
+
+  &__badge {
+    fill: #6b2a32;
+  }
+}

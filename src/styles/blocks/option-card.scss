@@ -36,8 +36,18 @@
     line-height: 1.25;
   }
 
-  // Soft fill marks the radio. The border stays put; the room piece pulses instead.
-  &:has(&__input:checked) {
+  // Unchecked hover is its own fill. It is not the selected soft fill.
+  &:hover {
+    background: var(--color-card-hover);
+    border-color: var(--color-card-hover-border);
+    box-shadow: inset 3px 0 0 var(--color-card-hover-border);
+  }
+
+  // Soft fill marks the radio, including while the pointer stays on it.
+  &:has(&__input:checked),
+  &:has(&__input:checked):hover {
     background: var(--color-accent-soft);
+    border-color: var(--color-border);
+    box-shadow: none;
   }
 }

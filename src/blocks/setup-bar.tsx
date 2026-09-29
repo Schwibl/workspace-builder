@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { canRent, formatUsd, isSetupEmpty, weeklyTotal } from "@/features/setup-model";
 import { useSetup } from "@/features/setup-context";
+import { playScare } from "@/features/theme-context";
 
 // Sticky summary of the weekly price. Review stays available so an empty checkout is reachable.
 export function SetupBar() {
@@ -20,7 +21,14 @@ export function SetupBar() {
       </div>
       <div className="setup-bar__actions">
         {isSetupEmpty(setup) ? null : (
-          <button type="button" className="button button--quiet" onClick={reset}>
+          <button
+            type="button"
+            className="button button--quiet"
+            onClick={() => {
+              reset();
+              playScare();
+            }}
+          >
             Start over
           </button>
         )}

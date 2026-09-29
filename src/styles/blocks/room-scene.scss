@@ -82,6 +82,27 @@
   }
 }
 
+// Dark theme only. The size pulse stays; this shadow breathes beside it.
+@keyframes room-piece-dread {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(120, 20, 30, 0));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 12px rgba(150, 36, 48, 0.9));
+  }
+}
+
+:root[data-theme="dark"] .room-piece--chosen {
+  animation: room-piece-chosen 1.8s ease-in-out infinite, room-piece-dread 2.2s ease-in-out infinite;
+}
+
+:root[data-theme="dark"] .room-piece--chosen:hover,
+:root[data-theme="dark"] .room-piece--chosen:focus-visible {
+  animation: room-piece-hover 0.85s ease-in-out infinite, room-piece-dread 2.2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .room-piece {
     animation: none;
@@ -94,6 +115,13 @@
     &:focus-visible {
       transform: scale(1.07);
     }
+  }
+
+  :root[data-theme="dark"] .room-piece--chosen,
+  :root[data-theme="dark"] .room-piece--chosen:hover,
+  :root[data-theme="dark"] .room-piece--chosen:focus-visible {
+    animation: none;
+    filter: none;
   }
 }
 

@@ -9,11 +9,11 @@ On a phone the same blocks stack: room, sidebar, price. Do not add a second desk
 Every slot is a hit target, empty or filled. Motion uses the piece's own center. A frame is not the hover or the selected state.
 
 - Hover: the piece scales up slightly and pulses between that size and a little larger. The pointer is a hand. No teal outline, no tinted hit plate.
-- Selected: a filled slot pulses in size, a smaller loop than the hover. "None" and an empty slot do not pulse. Hover on a selected piece uses the larger hover pulse.
+- Selected: a filled slot pulses in size, a smaller loop than the hover. "None" and an empty slot do not pulse. Hover on a selected piece uses the larger hover pulse. In the dark theme a soft red shadow breathes on that same piece. The size pulse stays.
 - Click, sidebar open: that category becomes the open tab.
 - Click, sidebar collapsed: a pop-up of that slot's radios sits beside the piece. Clicking the same piece again closes it. Clicking another piece moves the pop-up.
 
-Empty silhouette, dashed, muted stroke:
+Empty silhouette, dashed, muted stroke. In the dark theme the dash is thinner and the circle is a dull red. The plus stays bold and white.
 
 - Desk: tabletop and two legs, centered under the window.
 - Chair: seat, back, and base, in front of the desk.
@@ -39,10 +39,10 @@ A collapse control sits at the top of the right column. Expanded: the control re
 
 The list scrolls when the rows do not fit. The scrollbar is not visible, so it cannot change the column width. Nothing covers the last line of a row. Wheel, trackpad, and keyboard scrolling still move the rows. The pop-up uses the same rule. On a laptop-height window every option's sentence fits in the open sidebar.
 
-Radio rows: name, weekly price, and the full sentence. The checked row may use a soft fill. It does not change its border to show selection. The pulse on the piece is the selected state.
+Radio rows: name, weekly price, and the full sentence. The checked row uses the soft accent fill, mint in the white theme. It does not change its border to show selection. Hover on an unchecked row uses a different fill and a stronger edge, not that soft fill. Hover on the checked row keeps the soft fill. The pulse on the piece is the selected state.
 
 The pop-up uses those same rows. It is anchored beside the slot, not a new page and not a second sidebar.
 
 ## Window
 
-Both skies stay in the drawing. White theme shows daylight. Dark theme shows the moon. No sentence under the picture says so.
+Both skies stay in the drawing. White theme shows daylight, warm paper, and the teal accent. Dark theme shows a blood-tinged moon, fog in the pane, a faint grain over the page, and a short red vignette the moment Dark is chosen. Start over in that theme plays the same brief vignette. No sentence under the picture says so.

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Outfit } from "next/font/google";
 import Script from "next/script";
 import { AppHeader } from "@/blocks/app-header";
+import { HorrorGrain } from "@/blocks/horror-grain";
 import { SetupProvider } from "@/features/setup-context";
 import { ThemeProvider } from "@/features/theme-context";
 import "./globals.css";
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Script id="theme-boot" strategy="beforeInteractive">
           {themeBoot}
         </Script>
+        <HorrorGrain />
         <ThemeProvider>
           <SetupProvider>
             <AppHeader />

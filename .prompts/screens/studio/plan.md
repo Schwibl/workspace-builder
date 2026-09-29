@@ -4,7 +4,7 @@
 
 Parent: [`.prompts/road_to_mvp/studio_checkout/00_studio_checkout_unwrap_steps.md`](../../road_to_mvp/studio_checkout/00_studio_checkout_unwrap_steps.md).
 
-Source: `ux.md`, then `ui.md`. The brief named the scrollbar, the longer sets, the selected pulse, and the hover stretch. No open question.
+Source: `ux.md`, then `ui.md`. The brief named a horror night on the dark theme, and a card hover that leaves the selected fill alone. No open question.
 
 ## Settled (do not re-grill)
 
@@ -19,6 +19,9 @@ Source: `ux.md`, then `ui.md`. The brief named the scrollbar, the longer sets, t
 - The option list scrolls without a scrollbar that changes the width of the list or the page
 - The picture stays short enough that a laptop-height viewport shows room, open sidebar, and price without page scroll
 - The price bar stays readable
+- White theme stays the daylight Bali rental. Horror lives on Dark only
+- A chosen piece keeps its size pulse. Dark adds a soft shadow pulse. Hover stretch stays
+- An unchecked option card has its own hover. The checked card keeps its soft fill
 
 ## Tree
 
@@ -30,6 +33,9 @@ Source: `ux.md`, then `ui.md`. The brief named the scrollbar, the longer sets, t
   - [leaf] Hover stretch and a small pulse. Drop the teal hover frame
 - Fit
   - [leaf] Longer lists still leave room, open sidebar, and price on one laptop-height screen
+- Night
+  - [leaf] Dark theme: eerie moon and fog, grain, redder accents, creepier empty slots, a shadow pulse on chosen pieces, a brief vignette when entering Dark or starting over
+  - [leaf] Unchecked cards hover differently. Checked cards keep the soft fill, mint in the white theme
 
 ## Done when
 

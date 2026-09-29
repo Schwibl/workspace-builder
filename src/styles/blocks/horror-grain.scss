@@ -1,0 +1,76 @@
+// Grain sits over the page in the dark theme. It does not take layout space.
+
+.horror-grain {
+  display: none;
+  pointer-events: none;
+
+  &__svg,
+  &__plate {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+:root[data-theme="dark"] .horror-grain {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  animation: horror-flicker 2.8s ease-in-out infinite;
+}
+
+@keyframes horror-flicker {
+  0%,
+  100% {
+    opacity: 0.12;
+  }
+
+  46% {
+    opacity: 0.14;
+  }
+
+  48% {
+    opacity: 0.05;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+}
+
+:root.theme-scare::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 28%, rgba(90, 8, 16, 0.72) 100%);
+  animation: horror-scare 0.85s ease-out forwards;
+}
+
+@keyframes horror-scare {
+  0% {
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme="dark"] .horror-grain,
+  :root.theme-scare::after {
+    animation: none;
+  }
+
+  :root.theme-scare::after {
+    opacity: 0;
+  }
+}
