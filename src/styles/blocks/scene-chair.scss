@@ -1,0 +1,22 @@
+.scene-chair {
+  &__pole,
+  &__base,
+  &__wheel {
+    fill: var(--scene-metal);
+  }
+
+  &__seat,
+  &__head {
+    fill: var(--scene-seat);
+  }
+
+  &__back {
+    fill: var(--scene-mesh);
+  }
+
+  &__mesh {
+    stroke: var(--scene-mesh-line);
+    stroke-width: 1.4;
+    fill: none;
+  }
+}

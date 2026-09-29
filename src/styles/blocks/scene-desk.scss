@@ -1,0 +1,18 @@
+.scene-desk {
+  &__top {
+    fill: var(--scene-wood);
+  }
+
+  &__edge {
+    fill: var(--scene-wood-dark);
+  }
+
+  &__leg {
+    fill: var(--scene-wood-dark);
+  }
+
+  &__crank,
+  &__panel {
+    fill: var(--scene-metal);
+  }
+}

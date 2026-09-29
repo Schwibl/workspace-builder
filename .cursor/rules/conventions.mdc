@@ -1,0 +1,15 @@
+---
+description: Workspace designer conventions. Next.js and Tailwind are required; Sass BEM matches the Schwibl portfolio repos.
+alwaysApply: true
+---
+
+# Conventions
+
+- Read `CONTEXT.md` for words. Read `docs/adr/` before reversing a recorded decision.
+- New screens start in `.prompts/screens/<name>/` with `ux.md`, then `ui.md`, then `grill.md`, then `plan.md`. Implement the plan leaves only.
+- Tailwind utilities are for page shells (grid, spacing, width). Block look goes in `src/styles/blocks/<block-name>.scss`.
+- BEM: `block__element--modifier`. An element does not contain an element. A nested thing is a new block.
+- Tokens live on `:root` in `src/styles/base/variables.scss`. See `.prompts/base/how_to_visualise.md`.
+- TypeScript is camelCase. Domain types go in `src/types/*.d.ts` and start with `t_`.
+- Comment a logical block in one line. Do not delete a comment unless you delete the code it describes.
+- The window is part of the desk's room. White theme: daylight. Dark theme: moon. Do not add a second control for the sky.

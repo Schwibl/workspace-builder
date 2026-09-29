@@ -1,0 +1,52 @@
+.picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 0;
+
+  &__tabs {
+    display: flex;
+    gap: 0.35rem;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+  }
+
+  &__tab {
+    flex: 0 0 auto;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.4rem 0.8rem;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font: inherit;
+    cursor: pointer;
+
+    &--active {
+      border-color: var(--color-accent);
+      background: var(--color-accent);
+      color: var(--color-accent-ink);
+    }
+  }
+
+  &__legend {
+    margin: 0;
+    font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 560;
+  }
+
+  &__hint {
+    margin: 0.2rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.88rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+}

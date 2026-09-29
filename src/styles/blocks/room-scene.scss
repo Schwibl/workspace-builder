@@ -1,0 +1,43 @@
+.room-scene {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-scene);
+
+  &__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: var(--scene-wall);
+  }
+
+  &__wall {
+    fill: var(--scene-wall);
+  }
+
+  &__baseboard {
+    fill: var(--scene-wall-shadow);
+  }
+
+  &__floor {
+    fill: var(--scene-floor);
+  }
+
+  &__rug {
+    fill: var(--scene-rug);
+    opacity: 0.9;
+  }
+
+  &__caption {
+    margin: 0;
+    padding: 0.75rem 1rem 1rem;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+  }
+
+  &--compact &__caption {
+    font-size: 0.82rem;
+  }
+}

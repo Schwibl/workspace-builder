@@ -1,0 +1,31 @@
+.notice {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 0.9rem 1rem;
+  background: var(--color-surface);
+
+  &--error {
+    border-color: var(--color-danger);
+    background: var(--color-danger-soft);
+  }
+
+  &--empty {
+    background: var(--color-accent-soft);
+  }
+
+  &__title {
+    margin: 0 0 0.25rem;
+    font-size: 1.05rem;
+  }
+
+  &__text {
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+}

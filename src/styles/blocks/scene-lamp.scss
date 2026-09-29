@@ -1,0 +1,23 @@
+.scene-lamp {
+  &__arm,
+  &__base {
+    stroke: var(--scene-metal);
+    stroke-width: 4;
+    fill: none;
+    stroke-linecap: round;
+  }
+
+  &__base {
+    fill: var(--scene-metal);
+    stroke: none;
+  }
+
+  &__head {
+    fill: var(--scene-lamp);
+  }
+
+  &__glow {
+    fill: var(--scene-glow);
+    opacity: 0.55;
+  }
+}

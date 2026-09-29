@@ -1,0 +1,60 @@
+// The desk's window. Day sky and moon sky are both drawn; the active theme fades one out.
+
+.room-window {
+  &__frame {
+    fill: none;
+    stroke: var(--scene-frame);
+    stroke-width: 14;
+  }
+
+  &__mullion {
+    stroke: var(--scene-frame);
+    stroke-width: 8;
+  }
+
+  &__sill {
+    fill: var(--scene-wood);
+  }
+
+  &__sun {
+    fill: var(--scene-sun);
+  }
+
+  &__ray {
+    stroke: var(--scene-sun);
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+
+  &__cloud {
+    fill: #ffffff;
+    opacity: 0.9;
+  }
+
+  &__moon {
+    fill: var(--scene-moon);
+  }
+
+  &__star {
+    fill: var(--scene-star);
+  }
+
+  &__sky-day,
+  &__sky-night {
+    transition: opacity 0.45s ease;
+  }
+
+  &__sky-night {
+    opacity: 0;
+  }
+}
+
+:root[data-theme="dark"] {
+  .room-window__sky-day {
+    opacity: 0;
+  }
+
+  .room-window__sky-night {
+    opacity: 1;
+  }
+}

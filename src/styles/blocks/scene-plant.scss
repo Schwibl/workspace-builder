@@ -1,0 +1,13 @@
+.scene-plant {
+  &__pot {
+    fill: var(--scene-pot);
+  }
+
+  &__leaf {
+    fill: var(--scene-leaf);
+  }
+
+  &__leaf--dark {
+    fill: var(--scene-leaf-dark);
+  }
+}

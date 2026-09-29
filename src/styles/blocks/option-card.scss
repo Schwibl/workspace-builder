@@ -1,0 +1,41 @@
+.option-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.15rem 0.75rem;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  padding: 0.75rem 0.85rem;
+  background: var(--color-surface);
+  cursor: pointer;
+
+  &__input {
+    grid-row: 1 / span 2;
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
+    accent-color: var(--color-accent);
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__price {
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  &__blurb {
+    grid-column: 2 / -1;
+    color: var(--color-muted);
+    font-size: 0.86rem;
+  }
+
+  &:has(&__input:checked) {
+    border-color: var(--color-accent);
+    background: var(--color-accent-soft);
+  }
+}

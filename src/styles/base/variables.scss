@@ -1,0 +1,83 @@
+// Theme tokens — see `.prompts/base/how_to_visualise.md`
+// White theme is warm paper, not a blank #fff sheet. Dark theme is a night room.
+
+:root {
+  --color-bg: #f4efe6;
+  --color-surface: #fffdf8;
+  --color-text: #1c1915;
+  --color-muted: #5e574e;
+  --color-accent: #0e6b62;
+  --color-accent-ink: #f4fffc;
+  --color-accent-soft: #e5f3f1;
+  --color-border: #e3d7c6;
+  --color-danger: #9c341f;
+  --color-danger-soft: #fde8e2;
+
+  --scene-wall: #f6e7d4;
+  --scene-wall-shadow: #e7d3b6;
+  --scene-floor: #d7c0a0;
+  --scene-floor-deep: #c4a884;
+  --scene-rug: #c96b4a;
+  --scene-wood: #c4894a;
+  --scene-wood-dark: #8a5528;
+  --scene-frame: #f7f1e8;
+  --scene-metal: #5c6570;
+  --scene-mesh: #d5ddd8;
+  --scene-mesh-line: #6d8a80;
+  --scene-seat: #2f3a3a;
+  --scene-bezel: #1c2128;
+  --scene-screen: #9fd7e8;
+  --scene-lamp: #f2d48a;
+  --scene-glow: #ffd27a;
+  --scene-pot: #b85a3d;
+  --scene-leaf: #2f7d4a;
+  --scene-leaf-dark: #1e5c34;
+  --scene-sun: #ffd56a;
+  --scene-moon: #f7f3e4;
+  --scene-star: #f7f3e4;
+  --scene-sky-top: #7ec8f8;
+  --scene-sky-bottom: #e8f6ff;
+  --scene-night-top: #0c1224;
+  --scene-night-bottom: #243156;
+  --shadow-scene: 0 18px 40px rgba(60, 40, 20, 0.12);
+
+  --radius-card: 1rem;
+  --font-base: 1rem;
+  --focus-ring: 2px solid var(--color-accent);
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #10141c;
+  --color-surface: #1a2130;
+  --color-text: #f4efe6;
+  --color-muted: #b7c0ce;
+  --color-accent: #7ec8c0;
+  --color-accent-ink: #10211f;
+  --color-accent-soft: #1c3333;
+  --color-border: #2c3648;
+  --color-danger: #ffb4a4;
+  --color-danger-soft: #3a2420;
+
+  --scene-wall: #1a2230;
+  --scene-wall-shadow: #121822;
+  --scene-floor: #3a322c;
+  --scene-floor-deep: #2a241f;
+  --scene-rug: #8a4030;
+  --scene-wood: #a8743e;
+  --scene-wood-dark: #6b4524;
+  --scene-frame: #d9d0c3;
+  --scene-metal: #c5ced8;
+  --scene-mesh: #8ea39a;
+  --scene-mesh-line: #d5e4dc;
+  --scene-seat: #101614;
+  --scene-bezel: #0c0f14;
+  --scene-screen: #6ec4de;
+  --scene-lamp: #f0d59a;
+  --scene-glow: #ffd27a;
+  --scene-pot: #d4785c;
+  --scene-leaf: #3f9a5c;
+  --scene-leaf-dark: #1f6a38;
+  --scene-moon: #f7f3e4;
+  --scene-star: #f7f3e4;
+  --shadow-scene: 0 18px 40px rgba(0, 0, 0, 0.35);
+}

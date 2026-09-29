@@ -1,0 +1,14 @@
+.scene-monitor {
+  &__stand,
+  &__neck {
+    fill: var(--scene-metal);
+  }
+
+  &__bezel {
+    fill: var(--scene-bezel);
+  }
+
+  &__screen {
+    fill: var(--scene-screen);
+  }
+}
