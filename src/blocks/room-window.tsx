@@ -51,9 +51,6 @@ export function RoomWindow({ uid }: { uid: string }) {
           <circle className="room-window__star" cx="600" cy="150" r="1.6" />
           <circle className="room-window__star" cx="700" cy="70" r="2" />
           <circle className="room-window__star" cx="250" cy="180" r="1.3" />
-          <ellipse className="room-window__fog" cx="340" cy="198" rx="160" ry="26" />
-          <ellipse className="room-window__fog" cx="640" cy="168" rx="130" ry="20" />
-          <circle className="room-window__halo" cx="470" cy="130" r="62" />
           <g transform="translate(470 130)" mask={`url(#${moonId})`}>
             <circle className="room-window__moon" r="36" />
           </g>
