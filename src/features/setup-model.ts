@@ -108,12 +108,11 @@ export function formatUsd(amount: number): string {
   }).format(amount);
 }
 
-// Spoken description of the room, including the window, for the caption and screen readers
-export function describeSetup(setup: t_Setup, theme: t_Theme): string {
-  const sky = theme === "dark" ? "Moon in the window" : "Daylight in the window";
+// Spoken name for the room. The window draws the sky; this line does not.
+export function describeSetup(setup: t_Setup): string {
   const names = lineItems(setup).map((item) => item.name);
   if (names.length === 0) {
-    return `${sky}. Open slots are marked with a plus.`;
+    return "Workspace preview. Open slots are marked with a plus.";
   }
-  return `${sky}. ${names.join(", ")}.`;
+  return `Workspace preview. ${names.join(", ")}.`;
 }

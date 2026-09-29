@@ -4,7 +4,8 @@
 layout (theme + setup providers, header)
   ├── /                 studio-page
   │     ├── room-scene  SVG room, window follows data-theme
-  │     ├── picker      one category, radio cards
+  │     ├── picker      one category, radio cards, or hidden when collapsed
+  │     ├── slot-pop    that category's radios beside a piece
   │     └── setup-bar   weekly total, review
   └── /checkout         checkout-page
         ├── room-scene
@@ -25,7 +26,9 @@ The studio and the checkout read the same provider, so the room on the review sc
 
 ## Room
 
-`room-scene.tsx` composes the drawing back to front: wall, a large window, plant, desk, monitors, lamp, chair. The window, silhouettes, and icons live in their own blocks. Each of those five slots is either a dashed silhouette with a plus or the explicit icon. A monitor, lamp, or plant can be an icon while the desk is still empty. Day and night skies are stacked; `room-window.scss` sets night to opacity 0, and `:root[data-theme="dark"]` swaps the opacities.
+`room-scene.tsx` composes the drawing back to front: wall, a large window, plant, desk, monitors, lamp, chair. The window, silhouettes, and icons live in their own blocks. Each of those five slots is either a dashed silhouette with a plus or the explicit icon. A monitor, lamp, or plant can be an icon while the desk is still empty. Day and night skies are stacked; `room-window.scss` sets night to opacity 0, and `:root[data-theme="dark"]` swaps the opacities. Nothing under the picture names the sky.
+
+Each piece has a hit area. Hover draws a teal outline. Click opens that category in the sidebar, or a `slot-pop` beside the piece when the sidebar is collapsed. On a laptop-height window the studio height is the viewport minus the header, so the room, the open sidebar, and the price stay on screen. The option list scrolls inside the sidebar if it needs to. A phone stacks the same blocks and can scroll to the price.
 
 ## Theme boot
 

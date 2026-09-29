@@ -1,0 +1,60 @@
+// Pop-up of one slot's radios, anchored beside that piece.
+.slot-pop {
+  position: absolute;
+  z-index: 4;
+  width: min(18rem, 92%);
+  max-height: min(16rem, 70%);
+  overflow: auto;
+  padding: 0.55rem 0.6rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-scene);
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  &__title {
+    margin: 0;
+    margin-right: auto;
+    font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+    font-size: 1.05rem;
+  }
+
+  &__close {
+    border: 0;
+    background: transparent;
+    color: var(--color-muted);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  &--plant {
+    left: 8%;
+    top: 52%;
+  }
+
+  &--desk {
+    left: 42%;
+    top: 46%;
+  }
+
+  &--monitor {
+    left: 48%;
+    top: 8%;
+  }
+
+  &--lamp {
+    right: 2%;
+    top: 22%;
+  }
+
+  &--chair {
+    left: 46%;
+    top: 62%;
+  }
+}

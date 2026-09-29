@@ -10,7 +10,8 @@
     display: block;
     width: 100%;
     height: auto;
-    min-height: 22rem;
+    max-height: 42vh;
+    min-height: 11rem;
     background: var(--scene-wall);
   }
 
@@ -31,28 +32,40 @@
     opacity: 0.9;
   }
 
-  &__caption {
-    margin: 0;
-    padding: 0.75rem 1rem 1rem;
-    color: var(--color-muted);
-    font-size: 0.92rem;
-  }
-
-  &--compact &__caption {
-    font-size: 0.82rem;
-  }
-
   &--compact &__svg {
-    min-height: 16rem;
+    max-height: 28vh;
+    min-height: 9rem;
+  }
+}
+
+.room-piece {
+  cursor: pointer;
+
+  &__hit {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width: 3;
+  }
+
+  &:hover &__hit {
+    fill: color-mix(in srgb, var(--color-accent) 18%, transparent);
+    stroke: var(--color-accent);
+  }
+
+  &:focus-visible &__hit {
+    stroke: var(--color-accent);
+    stroke-width: 3;
   }
 }
 
 @media (min-width: 1024px) {
   .room-scene__svg {
-    min-height: 34rem;
+    max-height: calc(100dvh - 14.5rem);
+    min-height: 0;
   }
 
   .room-scene--compact .room-scene__svg {
-    min-height: 22rem;
+    max-height: calc(100dvh - 18rem);
+    min-height: 0;
   }
 }

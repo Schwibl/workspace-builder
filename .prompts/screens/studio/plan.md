@@ -4,50 +4,39 @@
 
 Parent: [`.prompts/road_to_mvp/studio_checkout/00_studio_checkout_unwrap_steps.md`](../../road_to_mvp/studio_checkout/00_studio_checkout_unwrap_steps.md).
 
-Accepted grill: `grill.md`.
+Source: `ux.md`, then `ui.md`. The 2026-09-29 brief named the caption, the collapse, the hover, and the fit. No open question.
 
-## Settled (do not re-grill) — 2026-09-29
+## Settled (do not re-grill)
 
 - Silhouette and icon never show together for the same slot
-- Monitor, lamp, and plant show before a desk. The plus opens that category
-- The preview column and the wall window are both large
+- Monitor, lamp, and plant show before a desk
 - Desk and chair have no none radio
-- The room drawing is composed from smaller blocks so `room-scene` stays under the line budget. The picture does not change
-
-## Goal
-
-The renter designs the room from the silhouettes.
-
-## Chosen approach
-
-Five slots are always in the room. Empty means a dashed silhouette and a white plus. Chosen means the explicit icon, including optional pieces chosen before a desk. The plus opens that category. The preview and the wall window are both larger.
-
-Rejected: hiding accessories until a desk exists (extra wait), and a plus that does not open the picker (extra hunting).
+- The window still draws daylight or the moon. The caption that said so is removed
+- One desktop layout. Phone stacks the same blocks
+- Click on a piece opens the sidebar tab when the sidebar is open, and a pop-up beside that piece when it is collapsed
+- Hover brightens the piece
+- The picture shrinks enough that a laptop-height viewport shows room, open sidebar, and price without page scroll
 
 ## Tree
 
-- Language
-  - [leaf] Slot, silhouette, icon, optional piece in `CONTEXT.md`
-- Preview
-  - [leaf] Wider studio column and a taller SVG (`studio-page`, `room-scene.scss`)
-  - [leaf] Larger wall window, still day or moon (`room-window`)
-- Slots
-  - [leaf] Dashed silhouettes and plus buttons for desk, chair, monitor, lamp, plant (`slot-mark`, `room-scene`)
-  - [leaf] Explicit icons in those same places, optional icons allowed with no desk
-  - [leaf] Plus opens the matching picker category (`studio-page`, `picker`)
 - Copy
-  - [leaf] Caption and picker hints no longer say an accessory is waiting for a desk
-- Structure
-  - [leaf] Split the drawing into the window, the silhouettes, and the icons. `room-scene` only composes them
+  - [leaf] Drop the room caption, including the sky sentence. Keep the drawn window
+- Sidebar
+  - [leaf] Collapse control on the right column. Collapsed hides the picker and shows a pop-up of that slot's options beside the clicked piece
+- Pieces
+  - [leaf] Hover state on silhouettes and icons
+  - [leaf] Click routes to the open sidebar tab or to the pop-up, matching the sidebar state
+- Fit
+  - [leaf] Shorter picture so room, open sidebar, and price share a laptop-height viewport. Phone stays stacked
 
 ## Done when
 
-Ticket 01 and ticket 02 acceptance criteria pass in the browser.
+The browser shows no sky caption, collapse toggles pop-ups beside the pieces, hover and click work in both sidebar states, and the desktop view shows room + open sidebar + price without scrolling.
 
 ## Out of scope
 
-Checkout form. vw conversion. Vercel.
+A second desktop layout. Payment. vw conversion. Vercel. desent-bot.
 
 ## Handoff
 
-Checkout leaf: [`.prompts/screens/checkout/plan.md`](../checkout/plan.md).
+Checkout keeps the same room drawing. It does not gain the studio sidebar.

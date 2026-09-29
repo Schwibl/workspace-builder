@@ -24,16 +24,9 @@ const hints: Record<t_CategoryId, string> = {
   plant: "Optional. A pot on the floor, with or without a desk.",
 };
 
-// One category at a time. The open category follows the plus tapped in the room.
-export function Picker({
-  category,
-  onCategory,
-}: {
-  category: t_CategoryId;
-  onCategory: (category: t_CategoryId) => void;
-}) {
+// Radios for one slot. The sidebar and the piece pop-up both use this list.
+export function SlotChoices({ category, name }: { category: t_CategoryId; name: string }) {
   const { setup, setDesk, setChair, setMonitor, setLamp, setPlant } = useSetup();
-
   const options = optionsFor(category);
   const selected = selectedId(setup, category);
 
@@ -60,6 +53,38 @@ export function Picker({
   };
 
   return (
+    <fieldset className="picker__list">
+      <legend className="sr-only">{labelFor(category)}</legend>
+      {options.map((item) => (
+        <label key={item.id} className="option-card">
+          <input
+            className="option-card__input"
+            type="radio"
+            name={name}
+            value={item.id}
+            checked={selected === item.id}
+            onChange={() => onPick(item.id)}
+          />
+          <span className="option-card__name">{item.name}</span>
+          <span className="option-card__price">
+            {item.weeklyUsd === 0 ? "—" : `${formatUsd(item.weeklyUsd)}/wk`}
+          </span>
+          <span className="option-card__blurb">{item.blurb}</span>
+        </label>
+      ))}
+    </fieldset>
+  );
+}
+
+// One category at a time. The open category follows the piece that was clicked.
+export function Picker({
+  category,
+  onCategory,
+}: {
+  category: t_CategoryId;
+  onCategory: (category: t_CategoryId) => void;
+}) {
+  return (
     <section className="picker" aria-label="Choose furniture">
       <div className="picker__tabs" role="tablist" aria-label="Categories">
         {categories.map((item) => {
@@ -84,26 +109,7 @@ export function Picker({
       <div role="tabpanel" id="picker-panel" aria-labelledby={`tab-${category}`}>
         <h2 className="picker__legend">{labelFor(category)}</h2>
         <p className="picker__hint">{hints[category]}</p>
-        <fieldset className="picker__list">
-          <legend className="sr-only">{labelFor(category)}</legend>
-          {options.map((item) => (
-            <label key={item.id} className="option-card">
-              <input
-                className="option-card__input"
-                type="radio"
-                name={`slot-${category}`}
-                value={item.id}
-                checked={selected === item.id}
-                onChange={() => onPick(item.id)}
-              />
-              <span className="option-card__name">{item.name}</span>
-              <span className="option-card__price">
-                {item.weeklyUsd === 0 ? "—" : `${formatUsd(item.weeklyUsd)}/wk`}
-              </span>
-              <span className="option-card__blurb">{item.blurb}</span>
-            </label>
-          ))}
-        </fieldset>
+        <SlotChoices category={category} name={`slot-${category}`} />
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 # Checkout — UI
 
-Same header as the studio. Two columns from the large breakpoint: the room figure on the left (compact caption), the words on the right. One column on a phone, room first.
+Same header as the studio. Two columns from the large breakpoint: the room figure on the left, the words on the right. One column on a phone, room first. The room has no caption.
 
 Right column:
 
