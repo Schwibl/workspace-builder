@@ -38,23 +38,62 @@
   }
 }
 
+// Size is the state. A chosen piece breathes. Hover stretches it and pulses a little larger.
 .room-piece {
   cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(1);
 
   &__hit {
     fill: transparent;
     stroke: transparent;
-    stroke-width: 3;
   }
 
-  &:hover &__hit {
-    fill: color-mix(in srgb, var(--color-accent) 18%, transparent);
-    stroke: var(--color-accent);
+  &--chosen {
+    animation: room-piece-chosen 1.8s ease-in-out infinite;
   }
 
-  &:focus-visible &__hit {
-    stroke: var(--color-accent);
-    stroke-width: 3;
+  &:hover,
+  &:focus-visible {
+    animation: room-piece-hover 0.85s ease-in-out infinite;
+  }
+}
+
+@keyframes room-piece-chosen {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.045);
+  }
+}
+
+@keyframes room-piece-hover {
+  0%,
+  100% {
+    transform: scale(1.07);
+  }
+
+  50% {
+    transform: scale(1.11);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room-piece {
+    animation: none;
+
+    &--chosen {
+      transform: scale(1);
+    }
+
+    &:hover,
+    &:focus-visible {
+      transform: scale(1.07);
+    }
   }
 }
 

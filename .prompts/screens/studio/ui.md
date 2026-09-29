@@ -1,14 +1,15 @@
 # Studio — UI
 
-One desktop arrangement: room on the left, sidebar on the right, price bar under both. The picture is a little smaller than the previous tall preview so a laptop-height window shows the room, the open sidebar, and the price without the page scrolling. The wall window stays the wide opening, daylight or moon filling it. There is no caption under the SVG.
+One desktop arrangement: room on the left, sidebar on the right, price bar under both. A laptop-height window shows the room, the open sidebar, and the price without the page scrolling. The wall window stays the wide opening, daylight or moon filling it. There is no caption under the SVG.
 
-On a phone the same blocks stack: room, sidebar, price. The missing caption is what keeps the price reachable. Do not add a second desktop layout.
+On a phone the same blocks stack: room, sidebar, price. Do not add a second desktop layout. The price bar stays readable: amount, helper line, and actions do not overlap.
 
 ## Pieces
 
-Every slot is a hit target, empty or filled.
+Every slot is a hit target, empty or filled. Motion uses the piece's own center. A frame is not the hover or the selected state.
 
-- Hover: the piece brightens. The pointer is a hand.
+- Hover: the piece scales up slightly and pulses between that size and a little larger. The pointer is a hand. No teal outline, no tinted hit plate.
+- Selected: a filled slot pulses in size, a smaller loop than the hover. "None" and an empty slot do not pulse. Hover on a selected piece uses the larger hover pulse.
 - Click, sidebar open: that category becomes the open tab.
 - Click, sidebar collapsed: a pop-up of that slot's radios sits beside the piece. Clicking the same piece again closes it. Clicking another piece moves the pop-up.
 
@@ -22,13 +23,13 @@ Empty silhouette, dashed, muted stroke:
 
 Centered on each empty outline: a teal circle and a bold white plus. Accessible name: "Add a desk", "Add a chair", "Add a monitor", "Add a lamp", "Add a plant".
 
-Explicit icon, outline and plus gone:
+Explicit icon, outline and plus gone. Each catalog row has a look of its own:
 
-- Desk: wood top, darker legs. Mechanical crank, electric panel, or thick dual-motor legs, at that desk's width.
-- Chair: mesh with headrest, or the shorter task chair.
-- Monitor: one 27″, one ultrawide, or two 27″s.
-- Lamp: metal arm, warm head, glow on the top.
-- Plant: terracotta pot and green leaves.
+- Desk: wood top and legs. Crank, electric panel, thick dual-motor legs, a drawer on the writing desk, or a lighter bamboo top. Width follows the row.
+- Chair: tall mesh, shorter task, a backless stool, or a dark leather executive.
+- Monitor: none, a small 24″, a 27″, a large 32″, an ultrawide, or two 27″s.
+- Lamp: none, a short clamp, the LED arm, or a taller arc.
+- Plant: none, a cactus, a snake plant, or a broader monstera.
 
 Optional icons use the same places when the desk is still a silhouette.
 
@@ -36,7 +37,11 @@ Optional icons use the same places when the desk is still a silhouette.
 
 A collapse control sits at the top of the right column. Expanded: the control reads as collapse, and the category pills plus the radio cards are below it. Collapsed: the column shrinks to the control, which reads as expand, and the cards are gone.
 
-The pop-up uses the same radio rows as the sidebar: name, weekly price, one line. It is anchored beside the slot, not a new page and not a second sidebar.
+The list scrolls when the rows do not fit. The scrollbar is not visible, so it cannot change the column width. A fade at the bottom of the scrollport is the affordance. It is zero height, so it does not change the size of the list. Wheel, trackpad, and keyboard scrolling still move the rows. The pop-up uses the same rule.
+
+Radio rows: name, weekly price, one line. The checked row may use a soft fill. It does not change its border to show selection. The pulse on the piece is the selected state.
+
+The pop-up uses those same rows. It is anchored beside the slot, not a new page and not a second sidebar.
 
 ## Window
 

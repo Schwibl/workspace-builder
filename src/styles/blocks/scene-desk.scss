@@ -11,8 +11,22 @@
     fill: var(--scene-wood-dark);
   }
 
+  &__drawer {
+    fill: var(--scene-wood-dark);
+  }
+
+  &__handle,
   &__crank,
   &__panel {
     fill: var(--scene-metal);
+  }
+
+  &--bamboo &__top {
+    fill: color-mix(in srgb, var(--scene-wood) 42%, var(--scene-frame));
+  }
+
+  &--bamboo &__edge,
+  &--bamboo &__leg {
+    fill: color-mix(in srgb, var(--scene-wood-dark) 50%, var(--scene-frame));
   }
 }

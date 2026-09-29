@@ -2,11 +2,25 @@
 
 export const desks: t_DeskOption[] = [
   {
+    id: "writing",
+    name: "Fixed writing desk",
+    blurb: "110×60 cm top with one drawer. Stays put. No motor, no crank.",
+    weeklyUsd: 12,
+    width: "compact",
+  },
+  {
     id: "mechanical",
     name: "Mechanical adjustable",
     blurb: "Hand crank, 120×70 cm, height 70–120 cm. No outlet needed.",
     weeklyUsd: 18,
     width: "compact",
+  },
+  {
+    id: "bamboo",
+    name: "Bamboo desk",
+    blurb: "Pale 140×70 cm top. Light enough for a villa, wide enough for a laptop and notes.",
+    weeklyUsd: 22,
+    width: "wide",
   },
   {
     id: "electric",
@@ -26,11 +40,11 @@ export const desks: t_DeskOption[] = [
 
 export const chairs: t_ChairOption[] = [
   {
-    id: "mesh",
-    name: "Mesh ergonomic",
-    blurb: "Breathable back, headrest, and a five-star base for long writing days.",
-    weeklyUsd: 14,
-    back: "tall",
+    id: "stool",
+    name: "Drafting stool",
+    blurb: "Round seat, no back. Perch height for a short session at the desk.",
+    weeklyUsd: 6,
+    back: "none",
   },
   {
     id: "task",
@@ -38,6 +52,20 @@ export const chairs: t_ChairOption[] = [
     blurb: "Lower back and a lighter seat. Better when the room is small.",
     weeklyUsd: 9,
     back: "compact",
+  },
+  {
+    id: "mesh",
+    name: "Mesh ergonomic",
+    blurb: "Breathable back, headrest, and a five-star base for long writing days.",
+    weeklyUsd: 14,
+    back: "tall",
+  },
+  {
+    id: "executive",
+    name: "Leather executive",
+    blurb: "Tall dark back and a heavier seat. The chair that stays in the study.",
+    weeklyUsd: 22,
+    back: "tall",
   },
 ];
 
@@ -50,11 +78,25 @@ export const monitors: t_MonitorOption[] = [
     layout: "none",
   },
   {
+    id: "fhd-24",
+    name: "24″ display",
+    blurb: "A smaller single screen. Enough for one window and a chat.",
+    weeklyUsd: 6,
+    layout: "small",
+  },
+  {
     id: "fhd-27",
     name: "27″ display",
     blurb: "One sharp screen for code, calls, and a browser beside it.",
     weeklyUsd: 8,
     layout: "single",
+  },
+  {
+    id: "fhd-32",
+    name: "32″ display",
+    blurb: "One large panel. Room for an editor and a preview without a second stand.",
+    weeklyUsd: 14,
+    layout: "large",
   },
   {
     id: "ultrawide",
@@ -80,10 +122,22 @@ export const lamps: t_LampOption[] = [
     weeklyUsd: 0,
   },
   {
+    id: "clamp",
+    name: "Clamp lamp",
+    blurb: "A short arm clipped at the right edge. A tight pool for the keyboard.",
+    weeklyUsd: 3,
+  },
+  {
     id: "led",
     name: "Smart LED lamp",
     blurb: "Warm pool of light on the right side of the desk for late sessions.",
     weeklyUsd: 4,
+  },
+  {
+    id: "arc",
+    name: "Arc lamp",
+    blurb: "A taller arm that reaches over the desktop from the right.",
+    weeklyUsd: 7,
   },
 ];
 
@@ -95,10 +149,22 @@ export const plants: t_PlantOption[] = [
     weeklyUsd: 0,
   },
   {
+    id: "cactus",
+    name: "Column cactus",
+    blurb: "One upright stem in a small pot. Almost no watering between stays.",
+    weeklyUsd: 2,
+  },
+  {
     id: "snake",
     name: "Snake plant",
     blurb: "A pot on the floor to the left of the desk. Hard to kill in a villa.",
     weeklyUsd: 3,
+  },
+  {
+    id: "monstera",
+    name: "Monstera",
+    blurb: "Broad split leaves. The pot sits left of the desk and reads from the door.",
+    weeklyUsd: 5,
   },
 ];
 

@@ -1,20 +1,20 @@
 // Catalog vocabulary for the Bali workspace rental designer.
 
-type t_DeskId = "mechanical" | "electric" | "dual-motor";
+type t_DeskId = "writing" | "mechanical" | "bamboo" | "electric" | "dual-motor";
 
-type t_ChairId = "mesh" | "task";
+type t_ChairId = "stool" | "task" | "mesh" | "executive";
 
-type t_MonitorId = "none" | "fhd-27" | "ultrawide" | "dual-27";
+type t_MonitorId = "none" | "fhd-24" | "fhd-27" | "fhd-32" | "ultrawide" | "dual-27";
 
-type t_LampId = "none" | "led";
+type t_LampId = "none" | "clamp" | "led" | "arc";
 
-type t_PlantId = "none" | "snake";
+type t_PlantId = "none" | "cactus" | "snake" | "monstera";
 
 type t_DeskWidth = "compact" | "wide" | "full";
 
-type t_ChairBack = "tall" | "compact";
+type t_ChairBack = "none" | "compact" | "tall";
 
-type t_MonitorLayout = "none" | "single" | "ultrawide" | "dual";
+type t_MonitorLayout = "none" | "small" | "single" | "large" | "ultrawide" | "dual";
 
 type t_AreaId = "canggu" | "ubud" | "seminyak" | "uluwatu" | "sanur";
 

@@ -4,34 +4,36 @@
 
 Parent: [`.prompts/road_to_mvp/studio_checkout/00_studio_checkout_unwrap_steps.md`](../../road_to_mvp/studio_checkout/00_studio_checkout_unwrap_steps.md).
 
-Source: `ux.md`, then `ui.md`. The 2026-09-29 brief named the caption, the collapse, the hover, and the fit. No open question.
+Source: `ux.md`, then `ui.md`. The brief named the scrollbar, the longer sets, the selected pulse, and the hover stretch. No open question.
 
 ## Settled (do not re-grill)
 
 - Silhouette and icon never show together for the same slot
-- Monitor, lamp, and plant show before a desk
+- Monitor, lamp, and plant show before a desk, and each of those slots keeps a "none"
 - Desk and chair have no none radio
 - The window still draws daylight or the moon. The caption that said so is removed
 - One desktop layout. Phone stacks the same blocks
 - Click on a piece opens the sidebar tab when the sidebar is open, and a pop-up beside that piece when it is collapsed
-- Hover brightens the piece
-- The picture shrinks enough that a laptop-height viewport shows room, open sidebar, and price without page scroll
+- Hover stretches the piece and pulses at that size. No teal frame
+- A chosen piece pulses in size. The radio card does not show selection with a border
+- The option list scrolls without a scrollbar that changes the width of the list or the page
+- The picture stays short enough that a laptop-height viewport shows room, open sidebar, and price without page scroll
+- The price bar stays readable
 
 ## Tree
 
-- Copy
-  - [leaf] Drop the room caption, including the sky sentence. Keep the drawn window
-- Sidebar
-  - [leaf] Collapse control on the right column. Collapsed hides the picker and shows a pop-up of that slot's options beside the clicked piece
+- List
+  - [leaf] Hide the scrollbar on the sidebar list and the pop-up. Keep scrolling. A zero-height fade marks that more rows exist
+  - [leaf] Add distinct extras for desk, chair, monitor, lamp, and plant. Keep the current rows. Optional slots still include none
 - Pieces
-  - [leaf] Hover state on silhouettes and icons
-  - [leaf] Click routes to the open sidebar tab or to the pop-up, matching the sidebar state
+  - [leaf] Selected pulse on a filled piece. Drop the selection border on the radio card
+  - [leaf] Hover stretch and a small pulse. Drop the teal hover frame
 - Fit
-  - [leaf] Shorter picture so room, open sidebar, and price share a laptop-height viewport. Phone stays stacked
+  - [leaf] Longer lists still leave room, open sidebar, and price on one laptop-height screen
 
 ## Done when
 
-The browser shows no sky caption, collapse toggles pop-ups beside the pieces, hover and click work in both sidebar states, and the desktop view shows room + open sidebar + price without scrolling.
+The browser shows no layout jump when a list overflows, more than the original set in every slot, a pulse on the chosen piece, a stretch-and-pulse on hover, both themes, and a collapsed pop-up. The desktop view still shows room, open sidebar, and price without page scroll.
 
 ## Out of scope
 
@@ -39,4 +41,4 @@ A second desktop layout. Payment. vw conversion. Vercel. desent-bot.
 
 ## Handoff
 
-Checkout keeps the same room drawing. It does not gain the studio sidebar.
+Checkout keeps the same room drawing, including the new looks and the pulse. It does not gain the studio sidebar.

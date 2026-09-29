@@ -72,6 +72,7 @@ export function SlotChoices({ category, name }: { category: t_CategoryId; name: 
           <span className="option-card__blurb">{item.blurb}</span>
         </label>
       ))}
+      <span className="picker__fade" aria-hidden="true" />
     </fieldset>
   );
 }

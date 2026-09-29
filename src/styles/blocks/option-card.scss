@@ -34,8 +34,8 @@
     font-size: 0.86rem;
   }
 
+  // Soft fill marks the radio. The border stays put; the room piece pulses instead.
   &:has(&__input:checked) {
-    border-color: var(--color-accent);
     background: var(--color-accent-soft);
   }
 }

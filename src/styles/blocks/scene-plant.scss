@@ -10,4 +10,8 @@
   &__leaf--dark {
     fill: var(--scene-leaf-dark);
   }
+
+  &__stem {
+    fill: var(--scene-leaf);
+  }
 }

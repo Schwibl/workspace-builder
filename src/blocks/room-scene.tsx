@@ -26,16 +26,19 @@ function PieceHit({
   label,
   onChoose,
   hit,
+  chosen = false,
   children,
 }: {
   label: string;
   onChoose: () => void;
   hit: { x: number; y: number; w: number; h: number };
+  chosen?: boolean;
   children: ReactNode;
 }) {
+  const pieceClass = chosen ? "room-piece room-piece--chosen" : "room-piece";
   return (
     <g
-      className="room-piece"
+      className={pieceClass}
       role="button"
       tabIndex={0}
       aria-label={label}
@@ -83,15 +86,21 @@ export function RoomScene({
         <RoomBackdrop />
         <RoomWindow uid={uid} />
         <PieceHit
-          label={setup.plantId === "snake" ? "Change plant" : "Add a plant"}
+          label={setup.plantId !== "none" ? "Change plant" : "Add a plant"}
           onChoose={() => choose("plant")}
-          hit={{ x: box.x - 112, y: 368, w: 96, h: 140 }}
+          chosen={setup.plantId !== "none"}
+          hit={{ x: box.x - 112, y: 340, w: 120, h: 170 }}
         >
-          {setup.plantId === "snake" ? <ScenePlant x={box.x - 96} /> : <PlantSilhouette x={box.x - 96} />}
+          {setup.plantId !== "none" ? (
+            <ScenePlant x={box.x - 96} plantId={setup.plantId} />
+          ) : (
+            <PlantSilhouette x={box.x - 96} />
+          )}
         </PieceHit>
         <PieceHit
           label={desk ? `Change desk, ${desk.name}` : "Add a desk"}
           onChoose={() => choose("desk")}
+          chosen={desk !== null}
           hit={{ x: box.x, y: box.topY - 6, w: box.w, h: 132 }}
         >
           {desk ? <SceneDesk box={box} deskId={desk.id} /> : <DeskSilhouette box={box} />}
@@ -99,23 +108,26 @@ export function RoomScene({
         <PieceHit
           label={monitor.layout !== "none" ? `Change monitor, ${monitor.name}` : "Add a monitor"}
           onChoose={() => choose("monitor")}
-          hit={{ x: box.x + (box.w - 180) / 2, y: box.topY - 128, w: 180, h: 124 }}
+          chosen={monitor.layout !== "none"}
+          hit={{ x: box.x + (box.w - 240) / 2, y: box.topY - 140, w: 240, h: 136 }}
         >
           {monitor.layout !== "none" ? <SceneMonitor box={box} layout={monitor.layout} /> : <MonitorSilhouette box={box} />}
         </PieceHit>
         <PieceHit
-          label={setup.lampId === "led" ? "Change lamp" : "Add a lamp"}
+          label={setup.lampId !== "none" ? "Change lamp" : "Add a lamp"}
           onChoose={() => choose("lamp")}
-          hit={{ x: box.x + box.w - 78, y: box.topY - 96, w: 86, h: 110 }}
+          chosen={setup.lampId !== "none"}
+          hit={{ x: box.x + box.w - 100, y: box.topY - 130, w: 110, h: 144 }}
         >
-          {setup.lampId === "led" ? <SceneLamp box={box} /> : <LampSilhouette box={box} />}
+          {setup.lampId !== "none" ? <SceneLamp box={box} lampId={setup.lampId} /> : <LampSilhouette box={box} />}
         </PieceHit>
         <PieceHit
           label={chair ? `Change chair, ${chair.name}` : "Add a chair"}
           onChoose={() => choose("chair")}
+          chosen={chair !== null}
           hit={{ x: 408, y: 344, w: 144, h: 180 }}
         >
-          {chair ? <SceneChair back={chair.back} /> : <ChairSilhouette />}
+          {chair ? <SceneChair back={chair.back} chairId={chair.id} /> : <ChairSilhouette />}
         </PieceHit>
       </svg>
     </figure>

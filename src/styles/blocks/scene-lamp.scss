@@ -20,4 +20,16 @@
     fill: var(--scene-glow);
     opacity: 0.55;
   }
+
+  &--clamp &__head {
+    fill: color-mix(in srgb, var(--scene-lamp) 55%, var(--scene-metal));
+  }
+
+  &--arc &__head {
+    fill: color-mix(in srgb, var(--scene-lamp) 40%, var(--scene-frame));
+  }
+
+  &--arc &__arm {
+    stroke-width: 5;
+  }
 }
