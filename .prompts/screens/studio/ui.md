@@ -37,9 +37,9 @@ Optional icons use the same places when the desk is still a silhouette.
 
 A collapse control sits at the top of the right column. Expanded: the control reads as collapse, and the category pills plus the radio cards are below it. Collapsed: the column shrinks to the control, which reads as expand, and the cards are gone.
 
-The list scrolls when the rows do not fit. The scrollbar is not visible, so it cannot change the column width. A fade at the bottom of the scrollport is the affordance. It is zero height, so it does not change the size of the list. Wheel, trackpad, and keyboard scrolling still move the rows. The pop-up uses the same rule.
+The list scrolls when the rows do not fit. The scrollbar is not visible, so it cannot change the column width. Nothing covers the last line of a row. Wheel, trackpad, and keyboard scrolling still move the rows. The pop-up uses the same rule. On a laptop-height window every option's sentence fits in the open sidebar.
 
-Radio rows: name, weekly price, one line. The checked row may use a soft fill. It does not change its border to show selection. The pulse on the piece is the selected state.
+Radio rows: name, weekly price, and the full sentence. The checked row may use a soft fill. It does not change its border to show selection. The pulse on the piece is the selected state.
 
 The pop-up uses those same rows. It is anchored beside the slot, not a new page and not a second sidebar.
 

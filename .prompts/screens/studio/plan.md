@@ -23,7 +23,7 @@ Source: `ux.md`, then `ui.md`. The brief named the scrollbar, the longer sets, t
 ## Tree
 
 - List
-  - [leaf] Hide the scrollbar on the sidebar list and the pop-up. Keep scrolling. A zero-height fade marks that more rows exist
+  - [leaf] Hide the scrollbar on the sidebar list and the pop-up. Keep scrolling. Every option sentence stays fully readable
   - [leaf] Add distinct extras for desk, chair, monitor, lamp, and plant. Keep the current rows. Optional slots still include none
 - Pieces
   - [leaf] Selected pulse on a filled piece. Drop the selection border on the radio card
