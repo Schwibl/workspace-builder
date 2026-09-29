@@ -36,4 +36,4 @@ Each piece has a hit area. Hover stretches the piece and pulses it; a filled pie
 
 ## Picker
 
-Five labels share the picker width: Desk, Chair, Monitor, Lamp, Plant. On a narrow column they wrap onto a second line. They do not scroll off the edge. An unselected option card uses the page paper and a side rail on hover. The selected card keeps the mint fill (`--color-accent-soft`). Category tabs, header links, and the theme switch use the same idea: hover is visible, and the current choice keeps its own fill.
+Five labels share the picker width: Desk, Chair, Monitor, Lamp, Plant. On a narrow column they wrap onto a second line. They do not scroll off the edge. An unselected option card uses `--color-card-hover` and a side rail on hover. The selected card keeps the mint fill (`--color-accent-soft`), including while the pointer is on it.

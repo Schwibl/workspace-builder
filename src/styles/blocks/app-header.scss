@@ -19,11 +19,6 @@
     text-decoration: none;
   }
 
-  // The wordmark is a sibling element, so the hover stays on the brand link.
-  &__brand:hover &__mark {
-    color: var(--color-accent);
-  }
-
   &__mark {
     font-family: var(--font-fraunces), ui-serif, Georgia, serif;
     font-size: 1.25rem;
@@ -46,14 +41,8 @@
     padding: 0.4rem 0.75rem;
     color: var(--color-text);
     text-decoration: none;
-    transition: background 0.16s ease, box-shadow 0.16s ease;
 
-    &:hover {
-      background: color-mix(in srgb, var(--color-text) 8%, transparent);
-    }
-
-    &--current,
-    &--current:hover {
+    &--current {
       background: var(--color-surface);
       box-shadow: inset 0 0 0 1px var(--color-border);
     }
@@ -75,11 +64,6 @@
     color: var(--color-text);
     font: inherit;
     cursor: pointer;
-    transition: background 0.16s ease, color 0.16s ease;
-
-    &:hover {
-      background: var(--color-bg);
-    }
   }
 }
 

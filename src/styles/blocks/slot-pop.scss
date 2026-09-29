@@ -36,16 +36,8 @@
     border: 0;
     background: transparent;
     color: var(--color-muted);
-    border-radius: 999px;
-    padding: 0.15rem 0.45rem;
     font: inherit;
     cursor: pointer;
-    transition: background 0.16s ease, color 0.16s ease;
-
-    &:hover {
-      background: var(--color-bg);
-      color: var(--color-text);
-    }
   }
 
   &--plant {

@@ -8,17 +8,7 @@
   border-radius: 0.9rem;
   padding: 0.32rem 0.7rem;
   background: var(--color-surface);
-  box-shadow: none;
   cursor: pointer;
-  transition: background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
-
-  // Paper fill and a rail. Not the mint wash that marks the chosen radio.
-  &:hover,
-  &:focus-within {
-    border-color: var(--color-text);
-    background: var(--color-bg);
-    box-shadow: inset max(3px, 0.22vw) 0 0 var(--color-text);
-  }
 
   &__input {
     grid-row: 1 / span 2;
@@ -46,10 +36,16 @@
     line-height: 1.25;
   }
 
-  // Mint fill wins over hover, including when the pointer is on the chosen row.
+  // Unchecked hover is its own fill. It is not the selected soft fill.
+  &:hover {
+    background: var(--color-card-hover);
+    border-color: var(--color-card-hover-border);
+    box-shadow: inset 3px 0 0 var(--color-card-hover-border);
+  }
+
+  // Soft fill marks the radio, including while the pointer stays on it.
   &:has(&__input:checked),
-  &:hover:has(&__input:checked),
-  &:focus-within:has(&__input:checked) {
+  &:has(&__input:checked):hover {
     background: var(--color-accent-soft);
     border-color: var(--color-border);
     box-shadow: none;

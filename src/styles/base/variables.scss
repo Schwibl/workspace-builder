@@ -41,6 +41,10 @@
   --scene-night-bottom: #243156;
   --shadow-scene: 0 18px 40px rgba(60, 40, 20, 0.12);
 
+  // Unchecked option row. Not the mint selection wash.
+  --color-card-hover: #ddd2c0;
+  --color-card-hover-border: #6f6254;
+
   --radius-card: 1rem;
   --font-base: 1rem;
   --focus-ring: 2px solid var(--color-accent);
@@ -57,6 +61,8 @@
   --color-border: #2c3648;
   --color-danger: #ffb4a4;
   --color-danger-soft: #3a2420;
+  --color-card-hover: #2c2430;
+  --color-card-hover-border: #e7d0d4;
 
   --scene-wall: #1a2230;
   --scene-wall-shadow: #121822;

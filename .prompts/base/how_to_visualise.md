@@ -35,8 +35,10 @@ White theme is warm paper, not a blank `#fff` sheet. Dark theme overrides the sa
 | Text on accent | `--color-accent-ink` | `#f4fffc` | `#10211f` |
 | Border | `--color-border` | `#e3d7c6` | `#2c3648` |
 | Danger | `--color-danger` | `#9c341f` | `#ffb4a4` |
+| Unchecked option hover | `--color-card-hover` | `#ddd2c0` | `#2c2430` |
+| Unchecked option edge | `--color-card-hover-border` | `#6f6254` | `#e7d0d4` |
 
-Scene paints (`--scene-wood`, `--scene-sky-top`, `--scene-moon`, and the rest) are the only colors inside the room SVG. Do not introduce a second palette in a component.
+Scene paints (`--scene-wood`, `--scene-sky-top`, `--scene-moon`, and the rest) are the only colors inside the room SVG. Do not introduce a second palette in a component. The option hover tokens are only for an unchecked radio row. The checked row stays `--color-accent-soft`.
 
 ## Typography
 

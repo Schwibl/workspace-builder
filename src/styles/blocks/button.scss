@@ -13,12 +13,6 @@
   line-height: 1.1;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
-
-  // Darken the teal. Disabled stays put so a waiting submit does not look pressable.
-  &:hover:not(:disabled) {
-    background: color-mix(in srgb, var(--color-accent) 78%, var(--color-text));
-  }
 
   &:disabled {
     opacity: 0.55;
@@ -31,20 +25,9 @@
     border-color: var(--color-border);
   }
 
-  &--ghost:hover:not(:disabled) {
-    background: var(--color-bg);
-    border-color: var(--color-text);
-    color: var(--color-text);
-  }
-
   &--quiet {
     background: transparent;
     color: var(--color-muted);
     padding-inline: 0.4rem;
-  }
-
-  &--quiet:hover:not(:disabled) {
-    background: transparent;
-    color: var(--color-text);
   }
 }
