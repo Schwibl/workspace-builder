@@ -32,7 +32,6 @@ Three ways to build the studio were on the table:
 2. A catalog grid with a preview elsewhere. Familiar, and it turns the task back into scrolling products.
 3. One studio, the room always visible, one category open. Fewest actions, and the preview is the page.
 
-We took the third. The same kind of choice, with the rejected options, is in `docs/adr/` and `.prompts/screens/*/grill.md`.
 
 ## Tech
 
@@ -53,12 +52,3 @@ Types sit in `src/types/*.d.ts` and use the `t_` prefix. Screen briefs live in `
 - [What we would do next](documents/tech/next_steps.md)
 - [Language](CONTEXT.md)
 
-## What we would improve with more time
-
-- A real order API and a payment step, instead of an in-memory request id
-- Stock and delivery dates per area
-- More chairs and a second plant, still as single choices
-
-## Notes
-
-`Schwibl/blocky` and `Schwibl/dnbh` were readable over SSH. The agent pointers, `.prompts/base/`, `docs/agents/`, and `documents/` follow those repos, retargeted at this Next.js studio. Skills stay global (`npx skills add mattpocock/skills -g -a cursor`); `.cursor` and `.agents` are gitignored.
