@@ -2,7 +2,10 @@
 
 A freelancer lands in Bali and needs a desk by next week. This app lets them build that room on one screen — desk, chair, monitor, lamp, plant — see it update, and request the rental.
 
-The Desent challenge asks for Next.js, Tailwind, and a public Vercel URL. This repo is the designer. Deployment and the `desent-bot` collaborator need a GitHub login this environment does not have; see [Known limits](#known-limits).
+**Live:** [https://workspace-builder-opal.vercel.app](https://workspace-builder-opal.vercel.app)  
+**Source:** [https://github.com/Schwibl/workspace-builder](https://github.com/Schwibl/workspace-builder)
+
+The Desent challenge asks for Next.js, Tailwind, and a public Vercel URL. This repo is the designer; production runs on Vercel under the link above.
 
 ## Run
 
@@ -55,10 +58,7 @@ Types sit in `src/types/*.d.ts` and use the `t_` prefix. Screen briefs live in `
 - A real order API and a payment step, instead of an in-memory request id
 - Stock and delivery dates per area
 - More chairs and a second plant, still as single choices
-- Deployed preview on Vercel, and `desent-bot` as a read-only collaborator
 
-## Known limits
+## Notes
 
-`Schwibl/blocky` and `Schwibl/dnbh` were readable over SSH. The agent pointers, `.prompts/base/`, `docs/agents/`, and `documents/` follow those repos, retargeted at this Next.js studio. Skills stay global (`npx skills add mattpocock/skills -g -a cursor`); `.cursor` and `.agents` are gitignored. There is no Vercel token in this environment, so there is no public URL yet.
-
-To add the reviewer when the GitHub repo is reachable: Settings → Collaborators → `desent-bot` → Read.
+`Schwibl/blocky` and `Schwibl/dnbh` were readable over SSH. The agent pointers, `.prompts/base/`, `docs/agents/`, and `documents/` follow those repos, retargeted at this Next.js studio. Skills stay global (`npx skills add mattpocock/skills -g -a cursor`); `.cursor` and `.agents` are gitignored.
