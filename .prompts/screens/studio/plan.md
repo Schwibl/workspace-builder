@@ -14,8 +14,8 @@ Source: `ux.md`, then `ui.md`. The brief named the scrollbar, the longer sets, t
 - The window still draws daylight or the moon. The caption that said so is removed
 - One desktop layout. Phone stacks the same blocks
 - Click on a piece opens the sidebar tab when the sidebar is open, and a pop-up beside that piece when it is collapsed
-- Hover stretches the piece and pulses at that size. No teal frame
-- A chosen piece pulses in size. The radio card does not show selection with a border
+- Hover grows the piece a little and holds that size. No pulse, no teal frame
+- A piece pulses only while its sidebar list or its pop-up is open. A chosen piece at rest stays still. The radio card does not show selection with a border
 - The option list scrolls without a scrollbar that changes the width of the list or the page
 - The picture stays short enough that a laptop-height viewport shows room, open sidebar, and price without page scroll
 - The price bar stays readable

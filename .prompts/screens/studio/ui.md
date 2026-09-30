@@ -8,8 +8,8 @@ On a phone the same blocks stack: room, sidebar, price. Do not add a second desk
 
 Every slot is a hit target, empty or filled. Motion uses the piece's own center. A frame is not the hover or the selected state.
 
-- Hover: the piece scales up slightly and pulses between that size and a little larger, only while the pointer is on that piece. Leaving it returns the piece to rest and stops that pulse. The pointer is a hand. No teal outline, no tinted hit plate. Focus alone does not play the hover pulse.
-- Selected: a filled slot pulses in size, a smaller loop than the hover. "None" and an empty slot do not pulse. Hover on a selected piece uses the larger hover pulse.
+- Hover: the piece scales up a little and holds that size. No pulse. The increase is smaller than the old 1.07–1.11 stretch. The pointer is a hand. No teal outline, no tinted hit plate. Leaving the piece returns it to rest.
+- Active: the piece whose sidebar list is open, or whose pop-up is open, pulses slightly. While it is active, the hover scale is off, even if the pointer is still on it. Every other piece, filled or empty, stays still.
 - Click, sidebar open: that category becomes the open tab.
 - Click, sidebar collapsed: a pop-up of that slot's radios sits beside the piece. Clicking the same piece again closes it. Clicking another piece moves the pop-up.
 
@@ -39,7 +39,7 @@ A collapse control sits at the top of the right column. Expanded: the control re
 
 The list scrolls when the rows do not fit. The scrollbar is not visible, so it cannot change the column width. Nothing covers the last line of a row. Wheel, trackpad, and keyboard scrolling still move the rows. The pop-up uses the same rule. On a laptop-height window every option's sentence fits in the open sidebar.
 
-Radio rows: name, weekly price, and the full sentence. The checked row may use a soft fill. It does not change its border to show selection. The pulse on the piece is the selected state.
+Radio rows: name, weekly price, and the full sentence. The checked row may use a soft fill. It does not change its border to show selection. The open list, not the checked radio, is what pulses the piece.
 
 The pop-up uses those same rows. It is anchored beside the slot, not a new page and not a second sidebar.
 

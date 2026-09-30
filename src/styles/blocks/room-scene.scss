@@ -38,7 +38,7 @@
   }
 }
 
-// Size is the state. A chosen piece breathes. Hover stretches it and pulses a little larger.
+// Rest is still. Hover holds a modest scale. Only the open slot pulses.
 .room-piece {
   cursor: pointer;
   transform-box: fill-box;
@@ -50,50 +50,35 @@
     stroke: transparent;
   }
 
-  &--chosen {
-    animation: room-piece-chosen 1.8s ease-in-out infinite;
+  &--hover {
+    transform: scale(1.04);
   }
 
-  // Pointer only. Focus must not keep this stretch running after the pointer leaves.
-  &--hover {
-    animation: room-piece-hover 0.85s ease-in-out infinite;
+  &--active {
+    animation: room-piece-active 1.6s ease-in-out infinite;
   }
 }
 
-@keyframes room-piece-chosen {
+@keyframes room-piece-active {
   0%,
   100% {
     transform: scale(1);
   }
 
   50% {
-    transform: scale(1.045);
-  }
-}
-
-@keyframes room-piece-hover {
-  0%,
-  100% {
-    transform: scale(1.07);
-  }
-
-  50% {
-    transform: scale(1.11);
+    transform: scale(1.035);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .room-piece {
-    animation: none;
-
-    &--chosen {
+    &--active {
       animation: none;
       transform: scale(1);
     }
 
     &--hover {
-      animation: none;
-      transform: scale(1.07);
+      transform: scale(1.04);
     }
   }
 }

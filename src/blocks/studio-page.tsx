@@ -56,7 +56,11 @@ export function StudioPage() {
       <div className={`studio-page__stage grid min-h-0 min-w-0 gap-3 ${columns}`}>
         <div className="studio-page__room min-w-0">
           <div className="studio-page__frame">
-            <RoomScene onChoose={onChoose} onDismiss={() => setPopup(null)} />
+            <RoomScene
+              onChoose={onChoose}
+              onDismiss={() => setPopup(null)}
+              active={collapsed ? popup : category}
+            />
             {collapsed && popup ? <SlotPop category={popup} onClose={() => setPopup(null)} /> : null}
           </div>
         </div>

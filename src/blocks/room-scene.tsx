@@ -26,20 +26,21 @@ function PieceHit({
   label,
   onChoose,
   hit,
-  chosen = false,
+  active = false,
   children,
 }: {
   label: string;
   onChoose: () => void;
   hit: { x: number; y: number; w: number; h: number };
-  chosen?: boolean;
+  active?: boolean;
   children: ReactNode;
 }) {
   const [hovered, setHovered] = useState(false);
+  // Active owns the motion. Hover scale stays off while this slot's list or pop-up is open.
   const pieceClass = [
     "room-piece",
-    chosen ? "room-piece--chosen" : "",
-    hovered ? "room-piece--hover" : "",
+    active ? "room-piece--active" : "",
+    hovered && !active ? "room-piece--hover" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -74,10 +75,12 @@ export function RoomScene({
   compact = false,
   onChoose,
   onDismiss,
+  active = null,
 }: {
   compact?: boolean;
   onChoose?: t_ChooseSlot;
   onDismiss?: () => void;
+  active?: t_CategoryId | null;
 }) {
   const { setup } = useSetup();
   const uid = useId().replace(/:/g, "");
@@ -98,7 +101,7 @@ export function RoomScene({
         <PieceHit
           label={setup.plantId !== "none" ? "Change plant" : "Add a plant"}
           onChoose={() => choose("plant")}
-          chosen={setup.plantId !== "none"}
+          active={active === "plant"}
           hit={{ x: box.x - 112, y: 340, w: 120, h: 170 }}
         >
           {setup.plantId !== "none" ? (
@@ -110,7 +113,7 @@ export function RoomScene({
         <PieceHit
           label={desk ? `Change desk, ${desk.name}` : "Add a desk"}
           onChoose={() => choose("desk")}
-          chosen={desk !== null}
+          active={active === "desk"}
           hit={{ x: box.x, y: box.topY - 6, w: box.w, h: 132 }}
         >
           {desk ? <SceneDesk box={box} deskId={desk.id} /> : <DeskSilhouette box={box} />}
@@ -118,7 +121,7 @@ export function RoomScene({
         <PieceHit
           label={monitor.layout !== "none" ? `Change monitor, ${monitor.name}` : "Add a monitor"}
           onChoose={() => choose("monitor")}
-          chosen={monitor.layout !== "none"}
+          active={active === "monitor"}
           hit={{ x: box.x + (box.w - 240) / 2, y: box.topY - 140, w: 240, h: 136 }}
         >
           {monitor.layout !== "none" ? <SceneMonitor box={box} layout={monitor.layout} /> : <MonitorSilhouette box={box} />}
@@ -126,7 +129,7 @@ export function RoomScene({
         <PieceHit
           label={setup.lampId !== "none" ? "Change lamp" : "Add a lamp"}
           onChoose={() => choose("lamp")}
-          chosen={setup.lampId !== "none"}
+          active={active === "lamp"}
           hit={{ x: box.x + box.w - 100, y: box.topY - 130, w: 110, h: 144 }}
         >
           {setup.lampId !== "none" ? <SceneLamp box={box} lampId={setup.lampId} /> : <LampSilhouette box={box} />}
@@ -134,7 +137,7 @@ export function RoomScene({
         <PieceHit
           label={chair ? `Change chair, ${chair.name}` : "Add a chair"}
           onChoose={() => choose("chair")}
-          chosen={chair !== null}
+          active={active === "chair"}
           hit={{ x: 408, y: 344, w: 144, h: 180 }}
         >
           {chair ? <SceneChair back={chair.back} chairId={chair.id} /> : <ChairSilhouette />}
