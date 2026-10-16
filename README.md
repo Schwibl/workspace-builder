@@ -2,11 +2,12 @@
 
 [![PR checks](https://github.com/Schwibl/workspace-builder/actions/workflows/pr-checks.yml/badge.svg)](https://github.com/Schwibl/workspace-builder/actions/workflows/pr-checks.yml)
 
-Live: https://workspace-builder-opal.vercel.app
-
 A freelancer lands in Bali and needs a desk by next week. This app lets them build that room on one screen — desk, chair, monitor, lamp, plant — see it update, and request the rental.
 
-The Desent challenge asks for Next.js, Tailwind, and a public Vercel URL. This repo is the designer; see [Known limits](#known-limits) for what is still open.
+**Live:** [https://workspace-builder-opal.vercel.app](https://workspace-builder-opal.vercel.app)  
+**Source:** [https://github.com/Schwibl/workspace-builder](https://github.com/Schwibl/workspace-builder)
+
+The Desent challenge asks for Next.js, Tailwind, and a public Vercel URL. This repo is the designer; production runs on Vercel under the link above.
 
 ## Run
 
@@ -35,7 +36,6 @@ Three ways to build the studio were on the table:
 2. A catalog grid with a preview elsewhere. Familiar, and it turns the task back into scrolling products.
 3. One studio, the room always visible, one category open. Fewest actions, and the preview is the page.
 
-We took the third. The same kind of choice, with the rejected options, is in `docs/adr/` and `.prompts/screens/*/grill.md`.
 
 ## Tech
 
@@ -56,15 +56,3 @@ Types sit in `src/types/*.d.ts` and use the `t_` prefix. Screen briefs live in `
 - [What we would do next](documents/tech/next_steps.md)
 - [Language](CONTEXT.md)
 
-## What we would improve with more time
-
-- A real order API and a payment step, instead of an in-memory request id
-- Stock and delivery dates per area
-- More chairs and a second plant, still as single choices
-- Deployed preview on Vercel, and `desent-bot` as a read-only collaborator
-
-## Known limits
-
-`Schwibl/blocky` and `Schwibl/dnbh` were readable over SSH. The agent pointers, `.prompts/base/`, `docs/agents/`, and `documents/` follow those repos, retargeted at this Next.js studio. Skills stay global (`npx skills add mattpocock/skills -g -a cursor`); `.cursor` and `.agents` are gitignored. The public URL is https://workspace-builder-opal.vercel.app; Vercel deploys `main` to production and each PR to a preview.
-
-To add the reviewer when the GitHub repo is reachable: Settings → Collaborators → `desent-bot` → Read.
