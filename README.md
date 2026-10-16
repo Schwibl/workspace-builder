@@ -1,5 +1,7 @@
 # monis.rent workspace designer
 
+[![PR checks](https://github.com/Schwibl/workspace-builder/actions/workflows/pr-checks.yml/badge.svg)](https://github.com/Schwibl/workspace-builder/actions/workflows/pr-checks.yml)
+
 A freelancer lands in Bali and needs a desk by next week. This app lets them build that room on one screen — desk, chair, monitor, lamp, plant — see it update, and request the rental.
 
 **Live:** [https://workspace-builder-opal.vercel.app](https://workspace-builder-opal.vercel.app)  
@@ -18,7 +20,9 @@ Open http://127.0.0.1:4317
 
 ```bash
 npm run lint
+npm run typecheck
 npm run build
+npm run e2e   # Playwright smoke, see docs/ci.md
 npm start
 ```
 
