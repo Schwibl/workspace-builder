@@ -1,8 +1,12 @@
 # monis.rent workspace designer
 
+[![PR checks](https://github.com/Schwibl/workspace-builder/actions/workflows/pr-checks.yml/badge.svg)](https://github.com/Schwibl/workspace-builder/actions/workflows/pr-checks.yml)
+
+Live: https://workspace-builder-opal.vercel.app
+
 A freelancer lands in Bali and needs a desk by next week. This app lets them build that room on one screen — desk, chair, monitor, lamp, plant — see it update, and request the rental.
 
-The Desent challenge asks for Next.js, Tailwind, and a public Vercel URL. This repo is the designer. Deployment and the `desent-bot` collaborator need a GitHub login this environment does not have; see [Known limits](#known-limits).
+The Desent challenge asks for Next.js, Tailwind, and a public Vercel URL. This repo is the designer; see [Known limits](#known-limits) for what is still open.
 
 ## Run
 
@@ -15,7 +19,9 @@ Open http://127.0.0.1:4317
 
 ```bash
 npm run lint
+npm run typecheck
 npm run build
+npm run e2e   # Playwright smoke, see docs/ci.md
 npm start
 ```
 
@@ -59,6 +65,6 @@ Types sit in `src/types/*.d.ts` and use the `t_` prefix. Screen briefs live in `
 
 ## Known limits
 
-`Schwibl/blocky` and `Schwibl/dnbh` were readable over SSH. The agent pointers, `.prompts/base/`, `docs/agents/`, and `documents/` follow those repos, retargeted at this Next.js studio. Skills stay global (`npx skills add mattpocock/skills -g -a cursor`); `.cursor` and `.agents` are gitignored. There is no Vercel token in this environment, so there is no public URL yet.
+`Schwibl/blocky` and `Schwibl/dnbh` were readable over SSH. The agent pointers, `.prompts/base/`, `docs/agents/`, and `documents/` follow those repos, retargeted at this Next.js studio. Skills stay global (`npx skills add mattpocock/skills -g -a cursor`); `.cursor` and `.agents` are gitignored. The public URL is https://workspace-builder-opal.vercel.app; Vercel deploys `main` to production and each PR to a preview.
 
 To add the reviewer when the GitHub repo is reachable: Settings → Collaborators → `desent-bot` → Read.
